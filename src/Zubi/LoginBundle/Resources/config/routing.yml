@@ -1,0 +1,3 @@
+ZubiLoginBundle_homepage:
+    pattern:  /{name}
+    defaults: { _controller: ZubiLoginBundle:Default:index }

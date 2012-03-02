@@ -1,0 +1,7 @@
+parameters:
+#    zubi_register.example.class: Zubi\RegisterBundle\Example
+
+services:
+#    zubi_register.example:
+#        class: %zubi_register.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

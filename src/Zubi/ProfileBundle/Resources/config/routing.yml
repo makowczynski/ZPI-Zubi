@@ -1,0 +1,3 @@
+ZubiProfileBundle_homepage:
+    pattern:  /{name}
+    defaults: { _controller: ZubiProfileBundle:Default:index }

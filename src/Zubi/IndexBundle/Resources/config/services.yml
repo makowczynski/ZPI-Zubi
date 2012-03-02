@@ -1,0 +1,7 @@
+parameters:
+#    zubi_index.example.class: Zubi\IndexBundle\Example
+
+services:
+#    zubi_index.example:
+#        class: %zubi_index.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

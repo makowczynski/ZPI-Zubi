@@ -1,0 +1,3 @@
+ZubiFaqBundle_homepage:
+    pattern:  /{name}
+    defaults: { _controller: ZubiFaqBundle:Default:index }

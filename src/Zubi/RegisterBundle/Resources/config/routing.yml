@@ -1,0 +1,3 @@
+ZubiRegisterBundle_homepage:
+    pattern:  /{name}
+    defaults: { _controller: ZubiRegisterBundle:Default:index }

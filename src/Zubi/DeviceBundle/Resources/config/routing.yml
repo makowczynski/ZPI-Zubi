@@ -1,0 +1,3 @@
+ZubiDeviceBundle_homepage:
+    pattern:  /{name}
+    defaults: { _controller: ZubiDeviceBundle:Default:index }

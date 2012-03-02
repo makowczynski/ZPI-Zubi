@@ -1,0 +1,7 @@
+parameters:
+#    zubi_device.example.class: Zubi\DeviceBundle\Example
+
+services:
+#    zubi_device.example:
+#        class: %zubi_device.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

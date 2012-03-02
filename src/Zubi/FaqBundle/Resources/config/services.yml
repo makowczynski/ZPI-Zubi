@@ -1,0 +1,7 @@
+parameters:
+#    zubi_faq.example.class: Zubi\FaqBundle\Example
+
+services:
+#    zubi_faq.example:
+#        class: %zubi_faq.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

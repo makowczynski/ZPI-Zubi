@@ -17,6 +17,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new Zubi\IndexBundle\ZubiIndexBundle(),
+            new Zubi\LoginBundle\ZubiLoginBundle(),
+            new Zubi\RegisterBundle\ZubiRegisterBundle(),
+            new Zubi\DeviceBundle\ZubiDeviceBundle(),
+            new Zubi\ProfileBundle\ZubiProfileBundle(),
+            new Zubi\FaqBundle\ZubiFaqBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
