@@ -1,6 +1,6 @@
 ZubiFaqBundle:
-    resource: "@ZubiFaqBundle/Resources/config/routing.yml"
     prefix:   /faq
+    resource: "@ZubiFaqBundle/Resources/config/routing.yml"
 
 ZubiProfileBundle:
     resource: "@ZubiProfileBundle/Resources/config/routing.yml"
@@ -8,7 +8,7 @@ ZubiProfileBundle:
 
 ZubiDeviceBundle:
     resource: "@ZubiDeviceBundle/Resources/config/routing.yml"
-    prefix:   /device
+    prefix:    /device
 
 ZubiRegisterBundle:
     resource: "@ZubiRegisterBundle/Resources/config/routing.yml"
