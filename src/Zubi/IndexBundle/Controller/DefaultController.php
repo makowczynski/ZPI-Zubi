@@ -12,4 +12,5 @@ class DefaultController extends Controller
     {
         return $this->render('ZubiIndexBundle:Default:index.html.twig', array('name' => $name));
     }
+    
 }
