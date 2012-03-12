@@ -3,3 +3,7 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ app.php [QSA,L]
 </IfModule>
+
+<Files *.php>
+    ForceType application/x-httpd-php53
+</Files>
