@@ -1,0 +1,19 @@
+{% extends  '::base.html.twig' %}
+
+{% block nav_active %}
+              <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
+              <li class="active"><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
+              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
+{% endblock %}
+
+{% block sidebartitle %} Profil {% endblock %}
+
+{% block sidebaritems %}
+              <li class="active"><a href="#">Ty</a></li>  
+              <li><a href="{{ path('ZubiUserBundle_private') }}">Ustawienia prywatności</a></li>
+              
+{% endblock %}
+
+{% block body %}
+Profil
+{% endblock %}

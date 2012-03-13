@@ -1,22 +1,26 @@
-ZubiFaqBundle:
-    prefix:   /faq
-    resource: "@ZubiFaqBundle/Resources/config/routing.yml"
-
-ZubiProfileBundle:
-    resource: "@ZubiProfileBundle/Resources/config/routing.yml"
+ZubiUserBundle:
+    resource: "@ZubiUserBundle/Resources/config/routing.yml"
     prefix:   /profile
+
+ZubiFaqBundle:
+    resource: "@ZubiFaqBundle/Resources/config/routing.yml"
+    prefix:   /faq
+
+# ZubiProfileBundle:
+#     resource: "@ZubiProfileBundle/Resources/config/routing.yml"
+#     prefix:   /profile
 
 ZubiDeviceBundle:
     resource: "@ZubiDeviceBundle/Resources/config/routing.yml"
     prefix:    /device
 
-ZubiRegisterBundle:
-    resource: "@ZubiRegisterBundle/Resources/config/routing.yml"
-    prefix:   /register
+# ZubiRegisterBundle:
+#     resource: "@ZubiRegisterBundle/Resources/config/routing.yml"
+#     prefix:   /register
 
-ZubiLoginBundle:
-    resource: "@ZubiLoginBundle/Resources/config/routing.yml"
-    prefix:   /login
+# ZubiLoginBundle:
+#     resource: "@ZubiLoginBundle/Resources/config/routing.yml"
+#     prefix:   /login
 
 ZubiIndexBundle:
     resource: "@ZubiIndexBundle/Resources/config/routing.yml"

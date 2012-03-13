@@ -1,0 +1,7 @@
+parameters:
+#    zubi_user.example.class: Zubi\UserBundle\Example
+
+services:
+#    zubi_user.example:
+#        class: %zubi_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

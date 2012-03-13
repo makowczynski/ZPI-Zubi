@@ -18,11 +18,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Zubi\IndexBundle\ZubiIndexBundle(),
-            new Zubi\LoginBundle\ZubiLoginBundle(),
-            new Zubi\RegisterBundle\ZubiRegisterBundle(),
             new Zubi\DeviceBundle\ZubiDeviceBundle(),
-            new Zubi\ProfileBundle\ZubiProfileBundle(),
             new Zubi\FaqBundle\ZubiFaqBundle(),
+            new Zubi\UserBundle\ZubiUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,5 +1,11 @@
 {% extends  '::base.html.twig' %}
 
+{% block nav_active %}
+              <li class="active"><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
+              <li><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
+              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
+{% endblock %}
+
 {% block javascript %}
 	 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 

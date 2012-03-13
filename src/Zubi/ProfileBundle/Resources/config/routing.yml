@@ -1,8 +1,0 @@
-ZubiProfileBundle_homepage:
-    pattern:  /
-    defaults: { _controller: ZubiProfileBundle:Default:index }
-
-
-ZubiProfileBundle_private:
-    pattern:  /private
-    defaults: { _controller: ZubiProfileBundle:Default:private }

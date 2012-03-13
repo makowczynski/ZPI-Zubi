@@ -1,0 +1,25 @@
+{% extends  '::base.html.twig' %}
+
+{% block nav_active %}
+              <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
+              <li class="active"><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
+              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
+{% endblock %}
+
+{% block sidebartitle %}Register{% endblock %}
+
+{% block sidebaritems %}
+              <li class="active"><a href="#">Nowe konto</a></li>
+              <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Anuluj</a></li>
+{% endblock %}
+
+
+{% block body %}
+
+<form action="{{ path('ZubiUserBundle_register') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>
+
+{% endblock %}

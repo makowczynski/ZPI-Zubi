@@ -1,7 +1,0 @@
-parameters:
-#    zubi_login.example.class: Zubi\LoginBundle\Example
-
-services:
-#    zubi_login.example:
-#        class: %zubi_login.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

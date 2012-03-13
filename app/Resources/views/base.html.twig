@@ -38,11 +38,13 @@
           <a class="brand" href="{{ path('ZubiIndexBundle_homepage') }}">Zubi</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
-              <li><a href="{{ path('ZubiProfileBundle_homepage') }}">Profil</a></li>
+              {% block nav_active %}
+              <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
+              <li><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
               <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
+              {% endblock %}
             </ul>
-		<p class="navbar-text pull-right">{% block login %}<a href="{{ path('ZubiLoginBundle_homepage') }}">Zaloguj</a>{% endblock %}</p>
+		<p class="navbar-text pull-right">{% block login %}<a href="{{ path('ZubiUserBundle_login') }}">Zaloguj</a>{% endblock %}</p>
           </div><!--/.nav-collapse -->
         </div>
       </div>
