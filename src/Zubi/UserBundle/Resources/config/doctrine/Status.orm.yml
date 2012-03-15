@@ -1,0 +1,3 @@
+Zubi\UserBundle\Entity\Status:
+	type: entity
+	table: status_uzytkownika
