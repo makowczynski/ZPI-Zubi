@@ -1,0 +1,19 @@
+Zubi\UserBundle\Entity\User:
+	type: entity
+	table: uzytkownicy
+	id:
+    	    id:
+        	    type: integer
+        	    length:10
+            	generator: { strategy: AUTO }
+    fields:
+        haslo:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        pass:
+            type: string
+            length: 255
+        
