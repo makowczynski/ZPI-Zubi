@@ -1,0 +1,9 @@
+Zubi\UserBundle\Entity\User
+	properties:
+		email:
+			- NotBlank: ~
+			- Email: ~
+		pass:
+			- NotBlank: ~
+		date_birth:
+			- Date: ~
