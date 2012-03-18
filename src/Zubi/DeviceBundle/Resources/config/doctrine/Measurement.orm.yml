@@ -1,0 +1,18 @@
+Zubi\DeviceBundle\Entity\Measurement:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    stationId:
+      type: integer
+    timestamp:
+      type: datetime
+    measureTypeId:
+      type: integer
+    value:
+      type: float
+  lifecycleCallbacks: {  }

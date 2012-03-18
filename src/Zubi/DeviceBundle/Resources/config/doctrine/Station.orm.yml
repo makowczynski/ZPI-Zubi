@@ -1,0 +1,28 @@
+Zubi\DeviceBundle\Entity\Station:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    version:
+      type: string
+      length: 255
+    country:
+      type: string
+      length: '4'
+    city:
+      type: string
+      length: 255
+    street:
+      type: string
+      length: 255
+    longitude:
+      type: float
+    latitude:
+      type: float
+    userId:
+      type: integer
+  lifecycleCallbacks: {  }

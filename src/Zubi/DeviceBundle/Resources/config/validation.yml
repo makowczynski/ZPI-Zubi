@@ -1,0 +1,41 @@
+Zubi\DeviceBundle\Entity\Measurement:
+	properties:
+		stationId:
+			- NotBlank: ~
+			- Type:
+				type: integer
+		timestamp:
+			- NotBlank: ~
+			- DateTime: ~
+		measureTypeId:
+			- NotBlank: ~
+			- Type:
+				type: integer
+		value:
+			- NotBlank: ~
+			- Type:
+				type: double
+
+Zubi\DeviceBundle\Entity\Station:
+	properties:
+		version:
+			- NotBlank: ~
+		country:
+			- NotBlank: ~
+			- Country: ~
+		city:
+			- NotBlank: ~
+		street:
+			- NotBlank: ~
+		longitude:
+			- NotBlank: ~
+			- Type:
+				type: float
+		latitude:
+			- NotBlank: ~
+			- Type:
+				type: float
+		userId:
+			- NotBlank: ~
+			- Type:
+				type: integer
