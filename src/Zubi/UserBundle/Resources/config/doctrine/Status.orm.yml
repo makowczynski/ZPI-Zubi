@@ -1,0 +1,16 @@
+Zubi\UserBundle\Entity\Status:
+	type: entity
+	table: status_uzytkownika
+	id:
+    	    id:
+        	    type: integer
+        	    length: 10
+            	generator: { strategy: AUTO }
+    fields:
+        nazwa:
+            type: string
+            length: 255
+    oneToMany:
+        users:
+            targetEntity: User
+            mappedBy: id_status
