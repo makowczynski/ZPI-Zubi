@@ -16,11 +16,10 @@ class PrivateController extends Controller
         $prywata = new User();
         
         $form = $this->createFormBuilder($prywata)
-                ->add('namepriv', 'checkbox', array('label' => 'Ukryć Imię?'))
-                ->add('surnamepriv', 'checkbox', array('label' => 'Ukryć Nazwisko?'))
-                ->add('countrypriv', 'checkbox', array('label' => 'Ukryć Kraj?'))
-                ->add('citypriv', 'checkbox', array('label' => 'Ukryć Miasto?'))
-                ->add('date_birthpriv', 'checkbox', array('label' => 'Ukryć Wiek?'))
+                ->add('osoba_prezentacja', 'checkbox', array('label' => 'Ukryć Imię?'))
+                ->add('kraj_prezentacja', 'checkbox', array('label' => 'Ukryć Kraj?'))
+                ->add('miasto_prezentacja', 'checkbox', array('label' => 'Ukryć Miasto?'))
+                ->add('data_ur_prezentacja', 'checkbox', array('label' => 'Ukryć Wiek?'))
                 ->getForm();
         
         return $this->render('ZubiUserBundle:Default:private.html.twig', 
