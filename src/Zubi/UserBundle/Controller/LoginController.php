@@ -15,8 +15,8 @@ class LoginController extends Controller
 
         
         $form = $this->createFormBuilder($user)
-                ->add('login', 'text', array('label' => 'E-mail'))
-                ->add('pass', 'password', array('label' => 'Hasło'))
+                ->add('email', 'text', array('label' => 'E-mail'))
+                ->add('haslo', 'password', array('label' => 'Hasło'))
                 ->getForm();
         
         

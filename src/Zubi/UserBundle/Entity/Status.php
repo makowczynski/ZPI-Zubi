@@ -2,30 +2,79 @@
 
 namespace Zubi\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Status
 {
 
-	protected $id;
 
-	protected $name;
+    /**
+     * @var integer $id
+     */
+    private $id;
 
-    public function getid()
+    /**
+     * @var string $nazwa
+     */
+    private $nazwa;
+
+    /**
+     * @var Zubi\UserBundle\Entity\User
+     */
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
     {
         return $this->id;
     }
-    public function setId($email)
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     */
+    public function setNazwa($nazwa)
     {
-        $this->id = $id;
+        $this->nazwa = $nazwa;
     }
 
-    public function getName()
+    /**
+     * Get nazwa
+     *
+     * @return string 
+     */
+    public function getNazwa()
     {
-        return $this->name;
+        return $this->nazwa;
     }
 
-    public function setName($name)
+    /**
+     * Add users
+     *
+     * @param Zubi\UserBundle\Entity\User $users
+     */
+    public function addUser(\Zubi\UserBundle\Entity\User $users)
     {
-        $this->name = $name;
+        $this->users[] = $users;
     }
 
+    /**
+     * Get users
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
 }

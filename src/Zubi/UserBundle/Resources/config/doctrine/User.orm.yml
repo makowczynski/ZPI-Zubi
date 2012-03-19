@@ -1,11 +1,11 @@
 Zubi\UserBundle\Entity\User:
-	type: entity
-	table: uzytkownicy
-	id:
-    	id:
+    type: entity
+    table: uzytkownicy
+    id:
+        id:
             type: integer
             length: 10
-           	generator: { strategy: AUTO }
+            generator: { strategy: AUTO }
     fields:
         haslo:
             type: string
@@ -13,12 +13,6 @@ Zubi\UserBundle\Entity\User:
         email:
             type: string
             length: 255
-        pass:
-            type: string
-            length: 255
-        id_osoby:
-            type: integer
-            length: 10
         osoba_prezentacja:
             type: integer
             length: 1
@@ -39,11 +33,8 @@ Zubi\UserBundle\Entity\User:
         data_ur_prezentacja:
             type: integer
             length: 1
-        id_status:
-            type: integer
-            length: 10
     manyToOne:
-        status:
+        id_status:
             targetEntity: Status
             inversedBy: users
             joinColumn:

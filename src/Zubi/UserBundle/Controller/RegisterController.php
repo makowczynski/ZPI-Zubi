@@ -16,15 +16,32 @@ class RegisterController extends Controller
 
         
         $form = $this->createFormBuilder($user)
-                ->add('login', 'text', array('label' => 'Login'))
                 ->add('email', 'email', array('label' => 'E-mail'))
-                ->add('pass', 'password', array('label' => 'Hasło'))
-                ->add('name', 'text', array('label' => 'Imię'))
-                ->add('surname', 'text', array('label' => 'Nazwisko'))
-                ->add('country', 'text', array('label' => 'Kraj'))
-                ->add('city', 'text', array('label' => 'Miasto'))
-                ->add('date_birth', 'date', array('widget' => 'single_text', 'label' => 'Data urodzenia'))
+                ->add('haslo', 'password', array('label' => 'Hasło'))
+                ->add('kraj', 'text', array('label' => 'Kraj'))
+                ->add('miasto', 'text', array('label' => 'Miasto'))
+                ->add('data_ur', 'date', array('widget' => 'choice', 'label' => 'Data urodzenia'))
                 ->getForm();
+
+        if($request->getMethod() == 'POST')
+        {
+            $form->bindRequest($request);
+
+            if($form->isValid())
+            {
+                $user->setOsobaPrezentacja(1);
+                $user->setKrajPrezentacja(1);
+                $user->setMiastoPrezentacja(1);
+                $user->setDataUrPrezentacja(1);
+                
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($user);
+                $em->flush();
+
+
+                return $this->redirect($this->generateUrl('ZubiUserBundle_homepage'));
+            }
+        }
         
         
         return $this->render('ZubiUserBundle:Default:register.html.twig', 
