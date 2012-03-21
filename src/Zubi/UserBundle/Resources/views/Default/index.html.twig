@@ -15,5 +15,9 @@
 {% endblock %}
 
 {% block body %}
-Profil
+	{% if user is defined %}
+		Witaj {{ user }}
+	{% else %}
+		Profil
+	{% endif %}
 {% endblock %}

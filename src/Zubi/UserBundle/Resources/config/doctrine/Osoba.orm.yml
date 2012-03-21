@@ -1,0 +1,15 @@
+Zubi\UserBundle\Entity\Osoba:
+    type: entity
+    table: osoby
+    id:
+            id:
+                type: integer
+                length: 10
+                generator: { strategy: AUTO }
+    fields:
+        imie:
+            type: string
+            length: 255
+        nazwisko:
+            type: string
+            length: 255

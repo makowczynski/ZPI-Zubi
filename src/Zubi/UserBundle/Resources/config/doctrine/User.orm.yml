@@ -13,18 +13,21 @@ Zubi\UserBundle\Entity\User:
         email:
             type: string
             length: 255
+            unique: true
         osoba_prezentacja:
             type: integer
             length: 1
         kraj:
             type: string
             length: 255
+            nullable: ture
         kraj_prezentacja:
             type: integer
             length: 1
         miasto:
             type: string
             length: 255
+            nullable: true
         miasto_prezentacja:
             type: integer
             length: 1
@@ -33,6 +36,12 @@ Zubi\UserBundle\Entity\User:
         data_ur_prezentacja:
             type: integer
             length: 1
+    oneToOne:
+        id_osoby:
+            targetEntity: Osoba
+            joinColumn:
+                name: id_osoby
+                referencedColumnName: id
     manyToOne:
         id_status:
             targetEntity: Status

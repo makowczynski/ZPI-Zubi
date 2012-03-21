@@ -10,6 +10,10 @@ ZubiUserBundle_login:
     pattern:  /login
     defaults: { _controller: ZubiUserBundle:Login:login }
 
+ZubiUserBundle_logout:
+    pattern:  /logout
+    defaults: { _controller: ZubiUserBundle:Logout:logout }
+
 ZubiUserBundle_homepage:
     pattern:  /
     defaults: { _controller: ZubiUserBundle:Default:index }
