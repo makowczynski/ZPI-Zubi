@@ -30,9 +30,11 @@ class Faq {
     /**
      * @ORM\Column(type="integer", length=10)
      */
-    protected $statusu;
+    protected $id_statusu;
     
     
+
+ 
 
     /**
      * Get id
@@ -85,22 +87,22 @@ class Faq {
     }
 
     /**
-     * Set statusu
+     * Set id_statusu
      *
-     * @param integer $statusu
+     * @param integer $idStatusu
      */
-    public function setStatusu($statusu)
+    public function setIdStatusu($idStatusu)
     {
-        $this->statusu = $statusu;
+        $this->id_statusu = $idStatusu;
     }
 
     /**
-     * Get statusu
+     * Get id_statusu
      *
      * @return integer 
      */
-    public function getStatusu()
+    public function getIdStatusu()
     {
-        return $this->statusu;
+        return $this->id_statusu;
     }
 }

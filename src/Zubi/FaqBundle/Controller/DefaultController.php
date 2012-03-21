@@ -10,6 +10,14 @@ class DefaultController extends Controller
     
     public function indexAction()
     {
-        return $this->render('ZubiFaqBundle:Default:index.html.twig');
+     $faqs = $this->getDoctrine()
+        ->getRepository('ZubiFaqBundle:Faq')
+        ->findAll();
+     //  $faq = $faqs[0];
+      // foreach ($faqs as $faq) {
+      //     
+      // }
+      // $res="dupa";
+        return $this->render('ZubiFaqBundle:Default:index.html.twig', array('faqs'=>$faqs));
     }
 }

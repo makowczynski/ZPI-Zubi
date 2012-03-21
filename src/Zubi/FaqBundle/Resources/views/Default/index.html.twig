@@ -1,5 +1,13 @@
 {% extends  '::base.html.twig' %}
 
 {% block body %}
-    Hello ble!
+<h3>FAQ - Często zadawne pytania</h3>
+<br />
+   <ul> 
+    {% for faq in faqs %}
+            <li>{{ faq.tresc }}
+            <p>{{faq.odpowiedz}}</p>
+            </li>
+    {% endfor %}
+   </ul>
 {% endblock %}
