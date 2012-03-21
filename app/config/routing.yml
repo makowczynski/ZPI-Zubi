@@ -1,6 +1,3 @@
-TestHelloBundle:
-    resource: "@TestHelloBundle/Resources/config/routing.yml"
-    prefix:   /
 
 ZubiUserBundle:
     resource: "@ZubiUserBundle/Resources/config/routing.yml"
