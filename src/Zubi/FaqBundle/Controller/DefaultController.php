@@ -20,4 +20,5 @@ class DefaultController extends Controller
       // $res="dupa";
         return $this->render('ZubiFaqBundle:Default:index.html.twig', array('faqs'=>$faqs));
     }
+    
 }
