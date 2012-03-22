@@ -3,11 +3,18 @@
 {% block body %}
 <h3>FAQ - Często zadawne pytania</h3>
 <br />
-   <ul> 
+   <ol> 
     {% for faq in faqs %}
             <li>{{ faq.tresc }}
-            <p>{{faq.odpowiedz}}</p>
+            <blockquote>{{faq.odpowiedz}}</blockquote>
             </li>
     {% endfor %}
-   </ul>
+   </ol>
+<h4>Możesz dodać nową pozycję w FAQ</h4>
+<form action="{{  path('ZubiFaqBundle_homepage')  }}" method="post" {{ form_enctype(form) }}>
+
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>
 {% endblock %}
