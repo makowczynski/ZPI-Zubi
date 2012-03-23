@@ -2,109 +2,300 @@
 
 namespace Zubi\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class User
 {
 
-    protected $id;
+  
+    /**
+     * @var integer $id
+     */
+    private $id;
 
-    protected $email;
+    /**
+     * @var string $haslo
+     */
+    private $haslo;
 
-    protected $pass;
-    
-    protected $country;
-    
-    protected $city;
-    
-    protected $date_birth;
+    /**
+     * @var string $email
+     */
+    private $email;
 
-    protected $namepriv;
-    
-    protected $countrypriv;
-    
-    protected $citypriv;
-    
-    protected $date_birthpriv;
+    /**
+     * @var integer $id_osoby
+     */
+    private $id_osoby;
+
+    /**
+     * @var integer $osoba_prezentacja
+     */
+    private $osoba_prezentacja;
+
+    /**
+     * @var string $kraj
+     */
+    private $kraj;
+
+    /**
+     * @var integer $kraj_prezentacja
+     */
+    private $kraj_prezentacja;
+
+    /**
+     * @var string $miasto
+     */
+    private $miasto;
+
+    /**
+     * @var integer $miasto_prezentacja
+     */
+    private $miasto_prezentacja;
+
+    /**
+     * @var date $data_ur
+     */
+    private $data_ur;
+
+    /**
+     * @var integer $data_ur_prezentacja
+     */
+    private $data_ur_prezentacja;
+
+    /**
+     * @var Zubi\UserBundle\Entity\Status
+     */
+    private $id_status;
 
 
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
     public function getId()
     {
         return $this->id;
     }
 
-    public function setId($email)
+    /**
+     * Set haslo
+     *
+     * @param string $haslo
+     */
+    public function setHaslo($haslo)
     {
-        $this->id = $id;
+        $this->haslo = $haslo;
     }
 
-    public function getEmail()
+    /**
+     * Get haslo
+     *
+     * @return string 
+     */
+    public function getHaslo()
     {
-        return $this->email;
+        return $this->haslo;
     }
 
+    /**
+     * Set email
+     *
+     * @param string $email
+     */
     public function setEmail($email)
     {
         $this->email = $email;
     }
 
-    public function getPass() 
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
     {
-        return $this->pass;
+        return $this->email;
     }
 
-    public function setPass($pass) 
+    /**
+     * Set id_osoby
+     *
+     * @param integer $idOsoby
+     */
+    public function setIdOsoby($idOsoby)
     {
-        $this->pass = $pass;
+        $this->id_osoby = $idOsoby;
+    }   
+
+    /**
+     * Get id_osoby
+     *
+     * @return integer 
+     */
+    public function getIdOsoby()
+    {
+        return $this->id_osoby;
     }
 
-    public function getCountry() 
+    /**
+     * Set osoba_prezentacja
+     *
+     * @param integer $osobaPrezentacja
+     */
+    public function setOsobaPrezentacja($osobaPrezentacja)
     {
-        return $this->country;
+        $this->osoba_prezentacja = $osobaPrezentacja;
     }
 
-    public function setCountry($country) 
+    /**
+     * Get osoba_prezentacja
+     *
+     * @return integer 
+     */
+    public function getOsobaPrezentacja()
     {
-        $this->country = $country;
+        return $this->osoba_prezentacja;
     }
 
-    public function getCity() 
+    /**
+     * Set kraj
+     *
+     * @param string $kraj
+     */
+    public function setKraj($kraj)
     {
-        return $this->city;
+        $this->kraj = $kraj;
     }
 
-    public function setCity($city) 
+    /**
+     * Get kraj
+     *
+     * @return string 
+     */
+    public function getKraj()
     {
-        $this->city = $city;
+        return $this->kraj;
     }
 
-    public function getDateBirth() 
+    /**
+     * Set kraj_prezentacja
+     *
+     * @param integer $krajPrezentacja
+     */
+    public function setKrajPrezentacja($krajPrezentacja)
     {
-        return $this->date_birth;
+        $this->kraj_prezentacja = $krajPrezentacja;
     }
 
-    public function setDateBirth($date_birth) 
+    /**
+     * Get kraj_prezentacja
+     *
+     * @return integer 
+     */
+    public function getKrajPrezentacja()
     {
-        $this->date_birth = $date_birth;
+        return $this->kraj_prezentacja;
     }
 
-    public function isNamepriv()
+    /**
+     * Set miasto
+     *
+     * @param string $miasto
+     */
+    public function setMiasto($miasto)
     {
-        return $this->namepriv;
-    }
-   
-    public function isCountrypriv() 
-    {
-        return $this->countrypriv;
-    }
- 
-    public function isCitypriv() 
-    {
-        return $this->citypriv;
+        $this->miasto = $miasto;
     }
 
-    public function isDateBirthpriv() 
+    /**
+     * Get miasto
+     *
+     * @return string 
+     */
+    public function getMiasto()
     {
-        return $this->date_birthpriv;
+        return $this->miasto;
     }
 
+    /**
+     * Set miasto_prezentacja
+     *
+     * @param integer $miastoPrezentacja
+     */
+    public function setMiastoPrezentacja($miastoPrezentacja)
+    {
+        $this->miasto_prezentacja = $miastoPrezentacja;
+    }
 
+    /**
+     * Get miasto_prezentacja
+     *
+     * @return integer 
+     */
+    public function getMiastoPrezentacja()
+    {
+        return $this->miasto_prezentacja;
+    }
+
+    /**
+     * Set data_ur
+     *
+     * @param date $dataUr
+     */
+    public function setDataUr($dataUr)
+    {
+        $this->data_ur = $dataUr;
+    }
+
+    /**
+     * Get data_ur
+     *
+     * @return date 
+     */
+    public function getDataUr()
+    {
+        return $this->data_ur;
+    }
+
+    /**
+     * Set data_ur_prezentacja
+     *
+     * @param integer $dataUrPrezentacja
+     */
+    public function setDataUrPrezentacja($dataUrPrezentacja)
+    {
+        $this->data_ur_prezentacja = $dataUrPrezentacja;
+    }
+
+    /**
+     * Get data_ur_prezentacja
+     *
+     * @return integer 
+     */
+    public function getDataUrPrezentacja()
+    {
+        return $this->data_ur_prezentacja;
+    }
+
+    /**
+     * Set id_status
+     *
+     * @param Zubi\UserBundle\Entity\Status $idStatus
+     */
+    public function setIdStatus(\Zubi\UserBundle\Entity\Status $idStatus)
+    {
+        $this->id_status = $idStatus;
+    }
+
+    /**
+     * Get id_status
+     *
+     * @return Zubi\UserBundle\Entity\Status 
+     */
+    public function getIdStatus()
+    {
+        return $this->id_status;
+    }
 }

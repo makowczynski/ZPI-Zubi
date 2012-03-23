@@ -1,5 +1,20 @@
 {% extends  '::base.html.twig' %}
 
 {% block body %}
-    Hello ble!
+<h3>FAQ - Często zadawne pytania</h3>
+<br />
+   <ol> 
+    {% for faq in faqs %}
+            <li>{{ faq.tresc }}
+            <blockquote>{{faq.odpowiedz}}</blockquote>
+            </li>
+    {% endfor %}
+   </ol>
+<h4>Możesz dodać nową pozycję w FAQ</h4>
+<form action="{{  path('ZubiFaqBundle_homepage')  }}" method="POST" {{ form_enctype(form) }}>
+    {{ form_row(form.tresc) }}
+    {{ form_row(form.odpowiedz) }}
+    {{ form_row(form.id_statusu) }}
+    <input type="submit" />
+</form>
 {% endblock %}

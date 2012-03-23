@@ -1,0 +1,10 @@
+Zubi\FaqBundle\Entity\Faq:
+  properties:
+    tresc:
+      - NotBlank: ~
+    odpowiedz:
+      - NotBlank: ~
+    id_statusu:
+      - NotBlank:  ~ 
+      - MaxLength: 1
+      - Choice: {choices: [1,2], message: Wpisz 1 albo 2 }
