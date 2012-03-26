@@ -13,16 +13,9 @@ class PrivateController extends Controller
     
     public function privateAction(Request $request) {
         
-        $session = $this->getRequest()->getSession();
-        if ($session->has('user'))
-        {
-            $user = $session->get('user');
-            $prywata = new User();
-
-            $user_db = $this->getDoctrine()->getRepository('ZubiUserBundle:User')
-                        ->findOneByEmail($user)            
+        $prywata = new User();
                 
-            $form = $this->createFormBuilder($prywata)
+        $form = $this->createFormBuilder($prywata)
                     ->add('osoba_prezentacja', 'checkbox', array('label' => 'Ukryć Imię?', 'required'  => false,
                         'attr' => array('checked' => 'yes')))
                     ->add('kraj_prezentacja', 'checkbox', array('label' => 'Ukryć Kraj?', 'required'  => false,
@@ -33,7 +26,7 @@ class PrivateController extends Controller
                         'attr' => array('checked' => 'yes')))
                     ->getForm();
 
-            if($request->getMethod() == 'POST')
+        if($request->getMethod() == 'POST')
         {
             $form->bindRequest($request);
 
@@ -44,13 +37,8 @@ class PrivateController extends Controller
             }
         }
 
-            return $this->render('ZubiUserBundle:Default:private.html.twig', 
-                    array('form' => $form->createView(), 'user' => $user));
-        }
-        else
-        {
-            return $this->redirect($this->generateUrl('ZubiUserBundle_login'));
-        }
+        return $this->render('ZubiUserBundle:Default:private.html.twig', 
+                array('form' => $form->createView()));
 
     }
 }

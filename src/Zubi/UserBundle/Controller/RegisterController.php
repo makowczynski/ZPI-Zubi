@@ -12,13 +12,6 @@ class RegisterController extends Controller
     
     public function registerAction(Request $request)
     {
-        $session = $this->getRequest()->getSession();
-        if ($session->has('user'))
-        {
-            $user = $session->get('user');
-            return $this->render('ZubiUserBundle:Default:index.html.twig', array('user' => $user));
-        }
-
         $user = new User();
 
         

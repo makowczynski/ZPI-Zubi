@@ -5,54 +5,28 @@ namespace Zubi\UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Zubi\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class LoginController extends Controller
 {
     
     public function loginAction(Request $request)
     {
+        $request = $this->getRequest();
+        $session = $request->getSession();
 
-        $session = $this->getRequest()->getSession();
-        if ($session->has('user'))
-        {
-            $user = $session->get('user');
-            return $this->render('ZubiUserBundle:Default:index.html.twig', array('user' => $user));
+        // get the login error if there is one
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
         }
 
-            
-        $user = new User();
-
-        
-        $form = $this->createFormBuilder($user)
-                ->add('email', 'text', array('label' => 'E-mail'))
-                ->add('haslo', 'password', array('label' => 'Hasło'))
-                ->getForm();
-
-        if($request->getMethod() == 'POST')
-        {
-            $form->bindRequest($request);
-
-            if($form->isValid())
-            {
-                $user_check = $this->getDoctrine()
-                                    ->getRepository('ZubiUserBundle:User')
-                                    ->findOneByEmail($this1 = $user->getEmail());
-
-                if(!$user_check) 
-                {
-                    throw $this->createNotFoundException('nie znaleziono: email '.$user->getEmail());
-                    
-                }
-
-                $session = $this->getRequest()->getSession();
-                $session->set('user', $user->getEmail());
-                return $this->redirect($this->generateUrl('ZubiUserBundle_homepage'));
-            }
-        }
-        
-        
-        return $this->render('ZubiUserBundle:Default:login.html.twig', 
-                array('form' => $form->createView(),
-                    ));        
+        return $this->render('ZubiUserBundle:Default:login.html.twig', array(
+            // last username entered by the user
+            'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+            'error'         => $error,
+        ));
     }
 }

@@ -15,9 +15,5 @@
 {% endblock %}
 
 {% block body %}
-	{% if user is defined %}
-		Witaj {{ user }}
-	{% else %}
-		Profil
-	{% endif %}
+	<p>Username: {{ app.user.username }}</p>
 {% endblock %}

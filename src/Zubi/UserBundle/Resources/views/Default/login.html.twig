@@ -16,10 +16,18 @@
 
 {% block body %}
 
-<form action="{{ path('ZubiUserBundle_login') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+{% if error %}
+    <div>{{ error.message }}</div>
+{% endif %}
 
-    <input type="submit" />
+<form action="{{ path('ZubiUserBundle_login_check') }}" method="post">	
+    <label for="username">Email:</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+    <label for="password">Pass:</label>
+    <input type="password" id="password" name="_password" />
+
+    <button type="submit">login</button>
 </form>
 
 {% endblock %}
