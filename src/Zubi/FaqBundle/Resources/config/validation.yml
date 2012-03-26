@@ -8,3 +8,4 @@ Zubi\FaqBundle\Entity\Faq:
       - NotBlank:  ~ 
       - MaxLength: 1
       - Choice: {choices: [1,2], message: Wpisz 1 albo 2 }
+      
