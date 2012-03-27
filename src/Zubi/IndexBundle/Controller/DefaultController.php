@@ -10,7 +10,17 @@ class DefaultController extends Controller
     
     public function indexAction()
     {
-        return $this->render('ZubiIndexBundle:Default:index.html.twig');
+
+    	$session = $this->getRequest()->getSession();
+        if ($session->has('user'))
+        {
+            $user = $session->get('user');
+        	return $this->render('ZubiIndexBundle:Default:index.html.twig', array('user' => $user));
+        }
+        else
+        {
+        	return $this->render('ZubiIndexBundle:Default:index.html.twig');
+        }
     }
     
 }

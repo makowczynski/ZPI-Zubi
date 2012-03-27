@@ -7,25 +7,23 @@ ZubiFaqBundle:
     resource: "@ZubiFaqBundle/Resources/config/routing.yml"
     prefix:   /faq
 
-# ZubiProfileBundle:
-#     resource: "@ZubiProfileBundle/Resources/config/routing.yml"
-#     prefix:   /profile
-
 ZubiDeviceBundle:
     resource: "@ZubiDeviceBundle/Resources/config/routing.yml"
     prefix:    /device
 
-# ZubiRegisterBundle:
-#     resource: "@ZubiRegisterBundle/Resources/config/routing.yml"
-#     prefix:   /register
-
-# ZubiLoginBundle:
-#     resource: "@ZubiLoginBundle/Resources/config/routing.yml"
-#     prefix:   /login
-
 ZubiIndexBundle:
     resource: "@ZubiIndexBundle/Resources/config/routing.yml"
     prefix:   /
+
+ZubiUserBundle_login:
+    pattern:  /login
+    defaults: { _controller: ZubiUserBundle:Login:login }
+
+ZubiUserBundle_login_check:
+    pattern:   /login_check
+
+ZubiUserBundle_logout:
+    pattern:   /logout
 
 
 # Internal routing configuration to handle ESI

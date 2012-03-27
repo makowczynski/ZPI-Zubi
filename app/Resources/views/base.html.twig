@@ -44,7 +44,13 @@
               <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
               {% endblock %}
             </ul>
-		<p class="navbar-text pull-right">{% block login %}<a href="{{ path('ZubiUserBundle_login') }}">Zaloguj</a>{% endblock %}</p>
+		<p class="navbar-text pull-right">{% block login %}
+      {% if is_granted('ROLE_USER') %}
+          <a href="{{ path('ZubiUserBundle_logout') }}">Wyloguj</a>
+        {% else %}
+         <a href="{{ path('ZubiUserBundle_login') }}">Zaloguj</a>
+       {% endif %}  
+      {% endblock %}</p>
           </div><!--/.nav-collapse -->
         </div>
       </div>

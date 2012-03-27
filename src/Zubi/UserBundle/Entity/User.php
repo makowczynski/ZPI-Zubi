@@ -3,8 +3,9 @@
 namespace Zubi\UserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class User
+class User implements UserInterface
 {
 
   
@@ -67,6 +68,16 @@ class User
      * @var Zubi\UserBundle\Entity\Status
      */
     private $id_status;
+
+    private $salt;
+
+
+    public function __construct()
+    {
+        $this->isActive = true;
+        $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+    }
+
 
 
     /**
@@ -298,4 +309,39 @@ class User
     {
         return $this->id_status;
     }
+
+
+    // do obsługi logowania:
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function equals(UserInterface $user)
+    {
+        return $user->getUsername() === $this->email;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    public function getPassword()
+    {
+        return $this->haslo;
+    }
+
+
 }
