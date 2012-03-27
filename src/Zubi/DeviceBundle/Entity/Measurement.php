@@ -15,9 +15,9 @@ class Measurement
     private $id;
 
     /**
-     * @var integer $stationId
+     * @var Zubi\DeviceBundle\Entity\Station $station;
      */
-    private $stationId;
+    private $station;
 
     /**
      * @var datetime $timestamp
@@ -25,15 +25,14 @@ class Measurement
     private $timestamp;
 
     /**
-     * @var integer $measureTypeId
+     * @var Zubi\DeviceBundle\Entity\MeasurementType $measurementType;
      */
-    private $measureTypeId;
+    private $measurementType;
 
     /**
      * @var float $value
      */
     private $value;
-
 
     /**
      * Get id
@@ -94,29 +93,6 @@ class Measurement
     }
 
     /**
-     * Set measureTypeId
-     *
-     * @param integer $measureTypeId
-     */
-    public function setMeasureTypeId($measureTypeId)
-    {
-        if(!is_int($measureTypeId) || $measureTypeId <= 0)
-            throw new \InvalidArgumentException('Invalid Measure Type ID');
-
-        $this->measureTypeId = $measureTypeId;
-    }
-
-    /**
-     * Get measureTypeId
-     *
-     * @return integer 
-     */
-    public function getMeasureTypeId()
-    {
-        return $this->measureTypeId;
-    }
-
-    /**
      * Set value
      *
      * @param float $value
@@ -134,5 +110,50 @@ class Measurement
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Set station
+     *
+     * @param \Zubi\DeviceBundle\Entity\Station $station
+     */
+    public function setStation(\Zubi\DeviceBundle\Entity\Station $station)
+    {
+        $this->station = $station;
+    }
+
+    /**
+     * Get station
+     *
+     * @return Zubi\DeviceBundle\Entity\Station 
+     */
+    public function getStation()
+    {
+        return $this->station;
+    }
+    /**
+     * @var integer $stationId
+     */
+    private $stationId;
+
+
+    /**
+     * Set measurementType
+     *
+     * @param Zubi\DeviceBundle\Entity\MeasurementType $measurementType
+     */
+    public function setMeasurementType(\Zubi\DeviceBundle\Entity\MeasurementType $measurementType)
+    {
+        $this->measurementType = $measurementType;
+    }
+
+    /**
+     * Get measurementType
+     *
+     * @return Zubi\DeviceBundle\Entity\MeasurementType 
+     */
+    public function getMeasurementType()
+    {
+        return $this->measurementType;
     }
 }

@@ -1,6 +1,6 @@
 Zubi\DeviceBundle\Entity\MeasurementType:
   type: entity
-  table: null
+  table: Typy_pomiarow
   fields:
     id:
       type: integer
@@ -14,3 +14,7 @@ Zubi\DeviceBundle\Entity\MeasurementType:
       type: string
       length: 255
   lifecycleCallbacks: {  }
+  oneToMany:
+    measurements:
+      targetEntity: Measurement
+      mappedBy: measurementType

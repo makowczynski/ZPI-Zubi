@@ -3,7 +3,7 @@
 namespace Zubi\DeviceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Zubi\DeviceBundle\Entity\Station
  */
@@ -13,6 +13,11 @@ class Station
      * @var integer $id
      */
     private $id;
+
+    /**
+     * @var string $hash
+     */
+    private $hash;
 
     /**
      * @var string $version
@@ -51,6 +56,16 @@ class Station
 
 
     /**
+     * @var ArrayCollection $measurements;
+     */
+    private $measurements;
+
+    public function __construct() {
+        $this->measurements = new ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -58,6 +73,26 @@ class Station
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set hash
+     *
+     * @param string $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * Get hash
+     *
+     * @return string 
+     */
+    public function getHash()
+    {
+        return $this->hash;
     }
 
     /**
@@ -198,5 +233,25 @@ class Station
     public function getUserId()
     {
         return $this->userId;
+    }
+
+    /**
+     * Add measurements
+     *
+     * @param Zubi\DeviceBundle\Entity\Measurement $measurements
+     */
+    public function addMeasurement(\Zubi\DeviceBundle\Entity\Measurement $measurements)
+    {
+        $this->measurements[] = $measurements;
+    }
+
+    /**
+     * Get measurements
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getMeasurements()
+    {
+        return $this->measurements;
     }
 }

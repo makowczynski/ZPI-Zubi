@@ -3,6 +3,7 @@
 namespace Zubi\DeviceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Zubi\DeviceBundle\Entity\MeasurementType
@@ -24,6 +25,14 @@ class MeasurementType
      */
     private $unit;
 
+    /**
+     * @var ArrayCollection $measurements
+     */
+    private $measurements;
+
+    public function __construct() {
+        $measurements = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -73,5 +82,25 @@ class MeasurementType
     public function getUnit()
     {
         return $this->unit;
+    }
+
+    /**
+     * Add measurements
+     *
+     * @param Zubi\DeviceBundle\Entity\Measurement $measurements
+     */
+    public function addMeasurement(\Zubi\DeviceBundle\Entity\Measurement $measurements)
+    {
+        $this->measurements[] = $measurements;
+    }
+
+    /**
+     * Get measurements
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getMeasurements()
+    {
+        return $this->measurements;
     }
 }

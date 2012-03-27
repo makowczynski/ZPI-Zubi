@@ -7,6 +7,10 @@ Zubi\DeviceBundle\Entity\Station:
       id: true
       generator:
         strategy: AUTO
+    hash:
+      type: string
+      length: 255
+      column: Hash
     version:
       type: string
       length: 255
@@ -33,3 +37,7 @@ Zubi\DeviceBundle\Entity\Station:
       type: integer
       column: Id_Uzytkownika
   lifecycleCallbacks: {  }
+  oneToMany:
+    measurements:
+      targetEntity: Measurement
+      mappedBy: station

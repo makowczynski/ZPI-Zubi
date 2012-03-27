@@ -14,10 +14,20 @@ Zubi\DeviceBundle\Entity\Measurement:
     timestamp:
       type: datetime
       column: Czas
-    measureTypeId:
-      type: integer
-      column: Id_Typu_Pomiaru
     value:
       type: float
       column: Wartosc
   lifecycleCallbacks: {  }
+  manyToOne:
+    station:
+      targetEntity: Station
+      inversedBy: measurements
+      joinColumn:
+        name: station
+        referencedColumnName: id
+    measurementType:
+      targetEntity: MeasurementType
+      inversedBy: measurements
+      joinColumn:
+        name: measurementType
+        referencedColumnName: id
