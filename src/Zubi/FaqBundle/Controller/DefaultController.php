@@ -17,10 +17,14 @@ class DefaultController extends Controller
         
      $newFaq = new Faq();
      $form = $this->createForm(new FaqForm(), $newFaq);      
+     //jeśli strona wyswietla się po przesłaniu formularza w POST
+     //trzeba spróbować dodać dane do bazy danych
      if($request->getMethod() == 'POST') {          
         $form->bindRequest($request);         
         $validator = $this->get('validator');
             $errors = $validator->validate($newFaq);
+        //jeśli przesyłane dane są poprawne
+        //dodajemy je do bazy oraz czyścimy formularz.
         if (count($errors) < 1) {
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($newFaq );
@@ -36,7 +40,7 @@ class DefaultController extends Controller
         ->findAll();
         return $this->render('ZubiFaqBundle:Default:index.html.twig', 
                 array('faqs'=>$faqs, 
-                    'form'=>$form->createView()));
+                      'form'=>$form->createView()));
     }
     
 }
