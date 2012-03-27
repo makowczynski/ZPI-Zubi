@@ -12,12 +12,11 @@
 	 <script type="text/javascript">
       function initialize() {
         var myOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8,
+          center: new google.maps.LatLng(51.107885,17.038538),
+          zoom: 9,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),
-            myOptions);
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
       }
       initialize();
     </script>
@@ -27,5 +26,5 @@
 	
 {% block body %}
     <h2>Mapa czujników</h2>
- 	<div id="map_canvas" style="width:100%; height:500px"></div>
+ 	  <div id="map_canvas" style="width:100%; height:500px"></div>
 {% endblock %}

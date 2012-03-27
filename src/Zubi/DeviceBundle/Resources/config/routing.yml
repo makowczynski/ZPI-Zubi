@@ -2,6 +2,3 @@ ZubiDeviceBundle_homepage:
     pattern:  /
     defaults: { _controller: ZubiDeviceBundle:Default:index }
 
-ZubiDeviceBundle_collect:
-	pattern:  / 
-	defaults: { _controller: ZubiDeviceBundle:Default:collect }

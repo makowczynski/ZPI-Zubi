@@ -1,18 +1,23 @@
 Zubi\DeviceBundle\Entity\Measurement:
   type: entity
-  table: null
+  table: Pomiary
   fields:
     id:
       type: integer
       id: true
+      column: Id
       generator:
         strategy: AUTO
     stationId:
       type: integer
+      column: Id_Stacji
     timestamp:
       type: datetime
+      column: Czas
     measureTypeId:
       type: integer
+      column: Id_Typu_Pomiaru
     value:
       type: float
+      column: Wartosc
   lifecycleCallbacks: {  }

@@ -1,6 +1,6 @@
 Zubi\DeviceBundle\Entity\Station:
   type: entity
-  table: null
+  table: Stacje_pogodowe
   fields:
     id:
       type: integer
@@ -10,19 +10,26 @@ Zubi\DeviceBundle\Entity\Station:
     version:
       type: string
       length: 255
+      column: Wersja
     country:
       type: string
       length: '4'
+      column: Kraj
     city:
       type: string
       length: 255
+      column: Miasto
     street:
       type: string
       length: 255
+      column: Ulica
     longitude:
       type: float
+      column: Dlugosc
     latitude:
       type: float
+      column: Szerokosc
     userId:
       type: integer
+      column: Id_Uzytkownika
   lifecycleCallbacks: {  }

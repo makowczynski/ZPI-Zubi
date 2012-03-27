@@ -13,7 +13,7 @@ class MeasurementTest extends WebTestCase
 	private $validator;
 
 	public function __construct() {
-		$this->validator = ValidatorFactoy::buildDefault()->getValidator();
+		//$this->validator = ValidatorFactoy::buildDefault()->getValidator();
 	}
 
 	public function testStationId() {
