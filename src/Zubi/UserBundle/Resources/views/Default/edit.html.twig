@@ -9,14 +9,18 @@
 {% block sidebartitle %} Profil {% endblock %}
 
 {% block sidebaritems %}
-              <li class="active"><a href="#">Ty</a></li>  
+              <li><a href="{{ path('ZubiUserBundle_homepage') }}">Ty</a></li>  
               <li><a href="{{ path('ZubiUserBundle_private') }}">Ustawienia prywatności</a></li>
-              <li><a href="{{ path('ZubiUserBundle_edituser') }}">Edytuj konto</a></li>
-              
+              <li class="active"><a href="{{ path('ZubiUserBundle_edituser') }}">Edytuj konto</a></li>
 {% endblock %}
 
+
 {% block body %}
-	<p>Username: {{ user.username }}</p>
-	<p>Kraj: {{ user.kraj }}</p>
-	<p>Miasto: {{ user.miasto }}</p>
+
+<form action="{{ path('ZubiUserBundle_edituser') }}" method="post" novalidate="novalidate"{{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>
+
 {% endblock %}
