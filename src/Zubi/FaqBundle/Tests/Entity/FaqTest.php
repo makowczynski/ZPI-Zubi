@@ -38,7 +38,7 @@ class FaqTest extends WebTestCase {
             $faq = $this->getFaq();
             $this->assertNull($faq->getIdStatusu());
             $faq->setIdStatusu(2);
-            $this->assertEquals(2, $faq->getIdStatusu());
+            $this->assertEquals(2 , $faq->getIdStatusu());
         }
             
         public function getFaq($full = false) {

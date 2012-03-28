@@ -1,0 +1,19 @@
+Zubi\FaqBundle\Entity\Status_widocznosci:
+  type: entity
+  table: Status_widocznosci
+  fields: 
+     id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+     nazwa:
+      type: string
+      length: 255
+      column: nazwa
+     oneToMany:
+       type: integer
+       faqs:        
+        targetEntity: Faq
+        mappedBy: id_statusu
+      

@@ -34,9 +34,6 @@ class Faq {
     protected $id_statusu;
     
     
-
- 
-
     /**
      * Get id
      *
@@ -113,4 +110,29 @@ class Faq {
     }
     
   
+    /**
+     * @var Zubi\FaqBundle\Entity\Status_widocznosci
+     */
+    private $status_widocznosci;
+
+
+    /**
+     * Set status_widocznosci
+     *
+     * @param Zubi\FaqBundle\Entity\Status_widocznosci $statusWidocznosci
+     */
+    public function setStatusWidocznosci(\Zubi\FaqBundle\Entity\Status_widocznosci $statusWidocznosci)
+    {
+        $this->status_widocznosci = $statusWidocznosci;
+    }
+
+    /**
+     * Get status_widocznosci
+     *
+     * @return Zubi\FaqBundle\Entity\Status_widocznosci 
+     */
+    public function getStatusWidocznosci()
+    {
+        return $this->status_widocznosci;
+    }
 }
