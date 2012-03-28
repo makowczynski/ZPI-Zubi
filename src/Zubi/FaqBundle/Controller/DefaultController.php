@@ -29,9 +29,10 @@ class DefaultController extends Controller
         if (count($errors) < 1) {
                 $em = $this->getDoctrine()->getEntityManager();                               
                // $sw = new Status_widocznosci();
+                echo "<h1>".$newFaq->getIdStatusu()."</h1>";
                  $sw = $this->getDoctrine()
                         ->getRepository('ZubiFaqBundle:Status_widocznosci')
-                        ->findOneById($newFaq->getIdStatusu());
+                        ->findOneByNazwa($newFaq->getIdStatusu());
                 $newFaq->setStatusWidocznosci($sw);
                 $em->persist($newFaq );
                 $em->flush();

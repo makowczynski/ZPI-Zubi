@@ -78,4 +78,9 @@ class Status_widocznosci {
     {
         return $this->faqs;
     }
+    
+    public function __toString() {
+        return $this->nazwa;
+    }
+    
 }
