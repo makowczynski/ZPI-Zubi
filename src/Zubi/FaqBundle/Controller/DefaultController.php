@@ -4,6 +4,7 @@ namespace Zubi\FaqBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Zubi\FaqBundle\Entity\Faq;
+use Zubi\FaqBundle\Entity\Status_widocznosci;
 use Zubi\FaqBundle\Form\Faq\FaqForm;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,12 +27,17 @@ class DefaultController extends Controller
         //jeśli przesyłane dane są poprawne
         //dodajemy je do bazy oraz czyścimy formularz.
         if (count($errors) < 1) {
-                $em = $this->getDoctrine()->getEntityManager();
+                $em = $this->getDoctrine()->getEntityManager();                               
+               // $sw = new Status_widocznosci();
+                 $sw = $this->getDoctrine()
+                        ->getRepository('ZubiFaqBundle:Status_widocznosci')
+                        ->findOneById($newFaq->getIdStatusu());
+                $newFaq->setStatusWidocznosci($sw);
                 $em->persist($newFaq );
                 $em->flush();
                 //po poprawnym dodaniu danych z formularza, chcemy mieć go pustego.
-                $newFaq = new Faq();
-                $form = $this->createForm(new FaqForm(), $newFaq);                 
+                //$newFaq = new Faq();
+                //$form = $this->createForm(new FaqForm(), $newFaq);                 
         }                     
      }       
      //pobieramy z bazy wszystkie faq

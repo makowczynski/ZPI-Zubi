@@ -12,17 +12,13 @@ class Status_widocznosci {
     protected $id;
     protected $nazwa;
 
+    
     protected $faqs;
     
      public function __construct() {
          $this->faqs = new ArrayCollection();
      }
-    /**
-     * @var integer $oneToMany
-     */
-    private $oneToMany;
-
-
+    
     /**
      * Get id
      *
@@ -33,6 +29,10 @@ class Status_widocznosci {
         return $this->id;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     /**
      * Set nazwa
      *
@@ -58,18 +58,24 @@ class Status_widocznosci {
      *
      * @param integer $oneToMany
      */
-    public function setOneToMany($oneToMany)
+  
+    /**
+     * Add faqs
+     *
+     * @param Zubi\FaqBundle\Entity\Faq $faqs
+     */
+    public function addFaq(\Zubi\FaqBundle\Entity\Faq $faqs)
     {
-        $this->oneToMany = $oneToMany;
+        $this->faqs[] = $faqs;
     }
 
     /**
-     * Get oneToMany
+     * Get faqs
      *
-     * @return integer 
+     * @return Doctrine\Common\Collections\Collection 
      */
-    public function getOneToMany()
+    public function getFaqs()
     {
-        return $this->oneToMany;
+        return $this->faqs;
     }
 }
