@@ -13,3 +13,7 @@ ZubiUserBundle_homepage:
 ZubiUserBundle_edituser:
     pattern: /edit
     defaults: { _controller: ZubiUserBundle:Edituser:edit }
+
+ZubiUserBundle_list:
+    pattern: /list
+    defaults: { _controller: ZubiUserBundle:List:list }

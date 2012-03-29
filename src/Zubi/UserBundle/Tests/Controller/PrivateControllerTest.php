@@ -4,7 +4,7 @@ namespace Zubi\UserBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class PrivateControllerTest extends WebTestCase
 {
     public function testIndex()
     {
@@ -26,5 +26,15 @@ class DefaultControllerTest extends WebTestCase
 
 		$this->assertTrue($crawler->filter('html:contains("pawel@costam.com")')->count() > 0);
 
+        $crawler = $client->request('GET', '/profile/private');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        $form = $crawler->selectButton('update')->form();
+        $form['form[osoba_prezentacja]']->tick();
+        $form['form[kraj_prezentacja]']->tick();
+        $form['form[miasto_prezentacja]']->tick();
+
+        $crawler = $client->submit($form);
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 }

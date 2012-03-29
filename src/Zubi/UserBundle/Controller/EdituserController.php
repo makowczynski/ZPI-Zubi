@@ -19,7 +19,7 @@ class EdituserController extends Controller
                 ->add('email', 'email', array('label' => 'E-mail'))
                 ->add('kraj', 'text', array('label' => 'Kraj'))
                 ->add('miasto', 'text', array('label' => 'Miasto'))
-                ->add('data_ur', 'date', array('widget' => 'choice', 'label' => 'Data urodzenia'))
+                ->add('data_ur', 'date', array('widget' => 'choice', 'label' => 'Data urodzenia  (rok / miesiąc / dzień)', 'years' => range(1900,2012)))
                 ->getForm();
 
         if($request->getMethod() == 'POST')

@@ -4,7 +4,7 @@ namespace Zubi\UserBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class ListControllerTest extends WebTestCase
 {
     public function testIndex()
     {
@@ -25,6 +25,13 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
 
 		$this->assertTrue($crawler->filter('html:contains("pawel@costam.com")')->count() > 0);
+
+
+        $crawler = $client->request('GET', '/profile/list');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        $this->assertTrue($crawler->filter('html:contains("miasto")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("kraj")')->count() > 0);
 
     }
 }
