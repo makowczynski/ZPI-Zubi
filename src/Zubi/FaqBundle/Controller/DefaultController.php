@@ -14,6 +14,7 @@ class DefaultController extends Controller
 {
     //kontroler odpowiadający za edycję FAQ
     public function editAction(Request $request, $id) {
+        $backLink = $this->generateUrl('ZubiFaqBundle_homepage');
         $newFaq = new Faq();
         $em = $this->getDoctrine()->getEntityManager();    
         $editedFaq = $this->getDoctrine()
@@ -24,7 +25,8 @@ class DefaultController extends Controller
             if($request->getMethod() != 'POST') {                         
                 $form = $this->createForm(new FaqForm(), $editedFaq);  
                 return $this->render('ZubiFaqBundle:Default:edit.html.twig',
-                        array ('form' => $form->createView()));
+                        array ('form' => $form->createView(),
+                                'backLink' => $backLink ));
             }
             else {                    
                 $form->bindRequest($request);         
@@ -69,8 +71,7 @@ class DefaultController extends Controller
             $this->get('session')->setFlash('errorMsg', 'Nie ma czego kasowac, nie ma FAQ o id: '.$id.'!');
             return $this->redirect($this->generateUrl('ZubiFaqBundle_homepage'));
         }          
-    }
-    
+    }    
     
     public function indexAction(Request $request)
     {
