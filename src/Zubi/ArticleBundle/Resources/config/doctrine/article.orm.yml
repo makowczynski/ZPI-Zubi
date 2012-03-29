@@ -1,0 +1,36 @@
+Zubi\ArticleBundle\Entity\Article:
+  type: entity
+  table: artykuly
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    title:
+      type: string
+      length: 255
+      column: tytul
+    content:
+      type: string      
+      column: Tresc
+    groupId:
+      type: integer
+      column: Id_grupy
+    statusId:
+      type: integer     
+      column: Id_statusu
+    userId:
+      type: integer
+      column: Id_Uzytkownika
+    authorId:
+      type: integer
+      column: Id_Autora
+  manyToOne:
+    status_widocznosci:
+      targetEntity: Status_widocznosci
+      inversedBy: articles
+      joinColumn:
+        name: id_statusu
+        referencedColumnName: id
+  
