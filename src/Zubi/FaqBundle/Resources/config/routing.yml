@@ -1,3 +1,8 @@
 ZubiFaqBundle_homepage:
     pattern:  /
     defaults: { _controller: ZubiFaqBundle:Default:index }
+
+
+ZubiFaqBundle_delete:
+    pattern: /delete/{id}
+    defaults: { _controller: ZubiFaqBundle:Default:delete}

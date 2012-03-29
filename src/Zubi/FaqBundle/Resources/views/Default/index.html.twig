@@ -1,13 +1,27 @@
 {% extends  '::base.html.twig' %}
 
 {% block body %}
+
+{% if app.session.hasFlash('notice') %}
+    <div class="flash-notice" style="color:blue;">
+        {{ app.session.flash('notice') }}
+    </div>
+{% endif %}
+{% if app.session.hasFlash('errorMsg') %}
+    <div class="flash-notice" style="color:red;">
+        {{ app.session.flash('errorMsg') }}
+    </div>
+{% endif %}
+
 <h3>FAQ - Często zadawne pytania</h3>
 <br />
    <ol> 
+    {% set a = 0 %}
     {% for faq in faqs %}
-            <li>{{ faq.tresc }}
+            <li>{{ faq.tresc }}&nbsp;&nbsp;<a href="{{delLinks[a]}}">usuń</a>
             <blockquote>{{faq.odpowiedz}}</blockquote>
             </li>
+            {% set a = a + 1 %}
     {% endfor %}
    </ol>
 <h4>Możesz dodać nową pozycję w FAQ</h4>
