@@ -18,7 +18,9 @@
    <ol> 
     {% set a = 0 %}
     {% for faq in faqs %}
-            <li>{{ faq.tresc }}&nbsp;&nbsp;<a href="{{delLinks[a]}}">usuń</a>
+            <li>{{ faq.tresc }}&nbsp;&nbsp;&nbsp;|&nbsp;
+            <a href="{{delLinks[a]}}">usuń</a>&nbsp;|&nbsp;
+            <a href="{{editLinks[a]}}">zmień</a>&nbsp;|&nbsp;
             <blockquote>{{faq.odpowiedz}}</blockquote>
             </li>
             {% set a = a + 1 %}
@@ -28,7 +30,7 @@
 <form action="{{  path('ZubiFaqBundle_homepage')  }}" method="POST" {{ form_enctype(form) }}>
     {{ form_row(form.tresc) }}
     {{ form_row(form.odpowiedz) }}
-    {{ form_row(form.id_statusu) }}
+    {{ form_row(form.StatusWidocznosci) }}
     <input type="submit" />
 </form>
 {% endblock %}

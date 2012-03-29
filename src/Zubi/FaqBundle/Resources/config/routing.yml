@@ -6,3 +6,7 @@ ZubiFaqBundle_homepage:
 ZubiFaqBundle_delete:
     pattern: /delete/{id}
     defaults: { _controller: ZubiFaqBundle:Default:delete}
+    
+ZubiFaqBundle_edit:
+    pattern: /edit/{id}
+    defaults: { _controller: ZubiFaqBundle:Default:edit}

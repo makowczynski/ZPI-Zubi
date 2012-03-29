@@ -12,14 +12,49 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
+    //kontroler odpowiadający za edycję FAQ
+    public function editAction(Request $request, $id) {
+        $newFaq = new Faq();
+        $em = $this->getDoctrine()->getEntityManager();    
+        $editedFaq = $this->getDoctrine()
+                    ->getRepository('ZubiFaqBundle:Faq')
+                    ->findOneById($id);
+        if ($editedFaq) {
+            $form = $this->createForm(new FaqForm(), $editedFaq);          
+            if($request->getMethod() != 'POST') {                         
+                $form = $this->createForm(new FaqForm(), $editedFaq);  
+                return $this->render('ZubiFaqBundle:Default:edit.html.twig',
+                        array ('form' => $form->createView()));
+            }
+            else {                    
+                $form->bindRequest($request);         
+                $validator = $this->get('validator');
+                $errors = $validator->validate($editedFaq);
+                if (count($errors) < 1) 
+                {                                                                          
+                    $sw = $this->getDoctrine()
+                            ->getRepository('ZubiFaqBundle:Status_widocznosci')
+                            ->findOneById($editedFaq->getStatusWidocznosci()->getId());
+                    $editedFaq->setStatusWidocznosci($sw);                
+                    $em->flush();
+                    $this->get('session')->setFlash('notice', 'Sukces edycji FAQ pt: "'.$editedFaq->getTresc().'"');
+                    return $this->redirect($this->generateUrl('ZubiFaqBundle_homepage'));
+                }                     
+            }
+        }
+        else{
+            $this->get('session')->setFlash('errorMsg', 'Nie ma czego edytować, nie ma FAQ o id: '.$id.'!');
+            return $this->redirect($this->generateUrl('ZubiFaqBundle_homepage'));
+        }                
+      }
+    
     //kontroler odpowiadajcy za usuwanie FAQ
     public function deleteAction($id) {
         $em = $this->getDoctrine()->getEntityManager();                               
         //pobieramy z bazy FAQ do skasowania.
         $delFaq = $this->getDoctrine()
                 ->getRepository('ZubiFaqBundle:Faq')
-                ->findOneById($id);
-         
+                ->findOneById($id);         
         if ($delFaq) {
             // kasujemy FAQ 
             $em->remove($delFaq);
@@ -47,20 +82,20 @@ class DefaultController extends Controller
      if($request->getMethod() == 'POST') {          
         $form->bindRequest($request);         
         $validator = $this->get('validator');
-            $errors = $validator->validate($newFaq);
+        $errors = $validator->validate($newFaq);
         //jeśli przesyłane dane są poprawne
         //dodajemy je do bazy oraz czyścimy formularz.
         if (count($errors) < 1) {                                                                          
                 $sw = $this->getDoctrine()
                         ->getRepository('ZubiFaqBundle:Status_widocznosci')
-                        ->findOneByNazwa($newFaq->getIdStatusu());
+                        ->findOneById($newFaq->getStatusWidocznosci()->getId());
                 $newFaq->setStatusWidocznosci($sw);
                 $em->persist($newFaq );
                 $em->flush();
                  $this->get('session')->setFlash('notice', 'Poprawnie dodałeś nowe FAQ.');
                 //po poprawnym dodaniu danych z formularza, chcemy mieć go pustego.                
-                $newFaq = new Faq();
-                $form = $this->createForm(new FaqForm(), $newFaq);                 
+              //  $newFaq = new Faq();
+              //  $form = $this->createForm(new FaqForm(), $newFaq);                 
         }                     
      }       
      //pobieramy z bazy wszystkie faq     
@@ -68,13 +103,16 @@ class DefaultController extends Controller
      // dla każdego faq tworzę link do jego usunięcia.
      $a = 0;
      $delLinks[0]="";
+     $editLinks[0] = "";
      foreach ($faqs as $faq) {
          $delLinks[$a] = $this->generateUrl('ZubiFaqBundle_delete', array ('id' => $faq->getId() ));
+         $editLinks[$a] = $this->generateUrl('ZubiFaqBundle_edit', array ('id' => $faq->getId() ));
          $a++;                 
      }
-        return $this->render('ZubiFaqBundle:Default:index.html.twig', 
+     return $this->render('ZubiFaqBundle:Default:index.html.twig', 
                 array('faqs' => $faqs, 
                       'delLinks' => $delLinks,
+                      'editLinks' => $editLinks,
                       'form' => $form->createView()));
     }
     

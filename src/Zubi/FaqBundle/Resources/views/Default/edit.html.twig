@@ -1,0 +1,24 @@
+{% extends  '::base.html.twig' %}
+
+{% block body %}
+
+{% if app.session.hasFlash('notice') %}
+    <div class="flash-notice" style="color:blue;">
+        {{ app.session.flash('notice') }}
+    </div>
+{% endif %}
+{% if app.session.hasFlash('errorMsg') %}
+    <div class="flash-notice" style="color:red;">
+        {{ app.session.flash('errorMsg') }}
+    </div>
+{% endif %}
+
+<h3>FAQ - EDYCJA</h3>
+<br />   
+<form action="" method="POST" {{ form_enctype(form) }}>
+    {{ form_row(form.tresc) }}
+    {{ form_row(form.odpowiedz) }}
+     {{ form_row(form.StatusWidocznosci) }}
+    <input type="submit" />
+</form>
+{% endblock %}
