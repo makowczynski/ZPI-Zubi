@@ -9,3 +9,11 @@ ZubiUserBundle_register:
 ZubiUserBundle_homepage:
     pattern:  /
     defaults: { _controller: ZubiUserBundle:Default:index }
+
+ZubiUserBundle_edituser:
+    pattern: /edit
+    defaults: { _controller: ZubiUserBundle:Edituser:edit }
+
+ZubiUserBundle_list:
+    pattern: /list
+    defaults: { _controller: ZubiUserBundle:List:list }

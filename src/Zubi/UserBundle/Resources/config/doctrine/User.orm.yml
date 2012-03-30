@@ -15,27 +15,23 @@ Zubi\UserBundle\Entity\User:
             length: 255
             unique: true
         osoba_prezentacja:
-            type: integer
-            length: 1
+            type: boolean
         kraj:
             type: string
             length: 255
             nullable: ture
         kraj_prezentacja:
-            type: integer
-            length: 1
+            type: boolean
         miasto:
             type: string
             length: 255
             nullable: true
         miasto_prezentacja:
-            type: integer
-            length: 1
+            type: boolean
         data_ur:
             type: date
         data_ur_prezentacja:
-            type: integer
-            length: 1
+            type: boolean
     oneToOne:
         id_osoby:
             targetEntity: Osoba

@@ -258,6 +258,26 @@ class User implements UserInterface, \Serializable
      *
      * @param date $dataUr
      */
+    public function setData_Ur($dataUr)
+    {
+        $this->data_ur = $dataUr;
+    }
+
+    /**
+     * Get data_ur
+     *
+     * @return date 
+     */
+    public function getData_Ur()
+    {
+        return $this->data_ur;
+    }
+
+        /**
+     * Set data_ur
+     *
+     * @param date $dataUr
+     */
     public function setDataUr($dataUr)
     {
         $this->data_ur = $dataUr;
@@ -271,6 +291,26 @@ class User implements UserInterface, \Serializable
     public function getDataUr()
     {
         return $this->data_ur;
+    }
+
+    /**
+     * Set data_ur_prezentacja
+     *
+     * @param integer $dataUrPrezentacja
+     */
+    public function setData_UrPrezentacja($dataUrPrezentacja)
+    {
+        $this->data_ur_prezentacja = $dataUrPrezentacja;
+    }
+
+    /**
+     * Get data_ur_prezentacja
+     *
+     * @return integer 
+     */
+    public function getData_UrPrezentacja()
+    {
+        return $this->data_ur_prezentacja;
     }
 
     /**

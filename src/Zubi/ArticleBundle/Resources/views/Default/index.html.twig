@@ -1,0 +1,28 @@
+{% extends  '::base.html.twig' %}
+
+{% block body %}
+
+{% if app.session.hasFlash('notice') %}
+    <div class="flash-notice" style="color:blue;">
+        {{ app.session.flash('notice') }}
+    </div>
+{% endif %}
+{% if app.session.hasFlash('errorMsg') %}
+    <div class="flash-notice" style="color:red;">
+        {{ app.session.flash('errorMsg') }}
+    </div>
+{% endif %}
+
+<h3>Lista artykułów</h3>
+<br />
+   <ol> 
+    {% set a = 0 %}
+    {% for article in articles %}
+            <li>{{ article.title }}&nbsp;&nbsp;&nbsp;|&nbsp;
+            <a href="{{editLinks[a]}}">Pokaż</a>&nbsp;|&nbsp;            
+            </li>
+            {% set a = a + 1 %}
+    {% endfor %}
+   </ol>
+<br />
+{% endblock %}

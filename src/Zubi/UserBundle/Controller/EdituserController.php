@@ -7,20 +7,19 @@ use Zubi\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class RegisterController extends Controller
+class EdituserController extends Controller
 {
     
-    public function registerAction(Request $request)
+    public function editAction(Request $request)
     {
         $user = new User();
-
+        $user = $this->get('security.context')->getToken()->getUser();
         
         $form = $this->createFormBuilder($user)
                 ->add('email', 'email', array('label' => 'E-mail'))
-                ->add('haslo', 'password', array('label' => 'Hasło'))
                 ->add('kraj', 'text', array('label' => 'Kraj'))
                 ->add('miasto', 'text', array('label' => 'Miasto'))
-                ->add('data_ur', 'date', array('widget' => 'choice', 'label' => 'Data urodzenia', 'years' => range(1900,2012)))
+                ->add('data_ur', 'date', array('widget' => 'choice', 'label' => 'Data urodzenia  (rok / miesiąc / dzień)', 'years' => range(1900,2012)))
                 ->getForm();
 
         if($request->getMethod() == 'POST')
@@ -29,13 +28,8 @@ class RegisterController extends Controller
 
             if($form->isValid())
             {
-                $user->setOsobaPrezentacja(1);
-                $user->setKrajPrezentacja(1);
-                $user->setMiastoPrezentacja(1);
-                $user->setData_UrPrezentacja(1);
                 
                 $em = $this->getDoctrine()->getEntityManager();
-                $em->persist($user);
                 $em->flush();
 
 
@@ -44,7 +38,7 @@ class RegisterController extends Controller
         }
         
         
-        return $this->render('ZubiUserBundle:Default:register.html.twig', 
+        return $this->render('ZubiUserBundle:Default:edit.html.twig', 
                 array('form' => $form->createView()));
     }
 }

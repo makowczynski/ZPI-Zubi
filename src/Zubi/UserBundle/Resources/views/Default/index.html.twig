@@ -11,9 +11,14 @@
 {% block sidebaritems %}
               <li class="active"><a href="#">Ty</a></li>  
               <li><a href="{{ path('ZubiUserBundle_private') }}">Ustawienia prywatności</a></li>
+              <li><a href="{{ path('ZubiUserBundle_edituser') }}">Edytuj konto</a></li>
+              <li><a href="{{ path('ZubiUserBundle_list') }}">Lista</a></li>
               
 {% endblock %}
 
 {% block body %}
-	<p>Username: {{ app.user.username }}</p>
+	<p>Username: {{ user.username }}</p>
+	<p>Kraj: {{ user.kraj }}</p>
+	<p>Miasto: {{ user.miasto }}</p>
+       <p>Data urodzenia: {{ user.data_ur|date("d/m/y") }}</p>
 {% endblock %}

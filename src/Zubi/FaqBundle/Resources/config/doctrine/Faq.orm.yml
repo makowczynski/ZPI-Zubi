@@ -1,0 +1,27 @@
+Zubi\FaqBundle\Entity\Faq:
+  type: entity
+  table: Faq
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    tresc:
+      type: string
+      length: 255
+      column: Tresc
+    odpowiedz:
+      type: text
+      column: Odpowiedz
+    id_statusu:
+      type: integer
+      length: '11'
+      column: id_statusu
+  manyToOne:
+    status_widocznosci:
+      targetEntity: Status_widocznosci
+      inversedBy: faqs
+      joinColumn:
+        name: id_statusu
+        referencedColumnName: id

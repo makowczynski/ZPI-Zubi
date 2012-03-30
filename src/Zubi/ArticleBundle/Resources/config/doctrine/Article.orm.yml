@@ -1,0 +1,56 @@
+Zubi\ArticleBundle\Entity\Article:
+  type: entity
+  table: artykuly
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    title:
+      type: string
+      length: '255'
+    content:
+      type: text
+      length: null
+    groupId:
+      type: integer
+      column: Id_grupy
+    statusId:
+      type: integer     
+      column: Id_statusu
+    userId:
+      type: integer
+      column: Id_Uzytkownika
+    authorId:
+      type: integer
+      column: Id_Autora
+  lifecycleCallbacks: {  }
+  manyToOne:
+    visibilityStatus:
+      targetEntity: Zubi\FaqBundle\Entity\Status_widocznosci
+      inversedBy: articles
+      joinColumn:
+        name: statusId
+        referencedColumnName: id
+  manyToOne:
+    author:
+      targetEntity: Zubi\UserBundle\Entity\Osoba
+      inversedBy: articles
+      joinColumn:
+        name: authorId
+        referencedColumnName: id
+  manyToOne:
+    creator:
+      targetEntity: Zubi\UserBundle\Entity\User
+      inversedBy: articles
+      joinColumn:
+        name: userId
+        referencedColumnName: id 
+  manyToOne:
+    creator:
+      targetEntity: ArticleGroup
+      inversedBy: articles
+      joinColumn:
+        name: groupId
+        referencedColumnName: id 

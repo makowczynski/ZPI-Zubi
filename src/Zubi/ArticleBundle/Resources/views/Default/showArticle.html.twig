@@ -1,0 +1,25 @@
+{% extends  '::base.html.twig' %}
+
+{% block body %}
+
+{% if app.session.hasFlash('notice') %}
+    <div class="flash-notice" style="color:blue;">
+        {{ app.session.flash('notice') }}
+    </div>
+{% endif %}
+{% if app.session.hasFlash('errorMsg') %}
+    <div class="flash-notice" style="color:red;">
+        {{ app.session.flash('errorMsg') }}
+    </div>
+{% endif %}
+
+<h3>{{article.title}}</h3>
+<h6>Kategoria artykułu: {{category.name}}</h6>
+<h7>Autor: {{author.imie}} {{author.nazwisko}}</h7><br />
+<h7>Dodał: {{creator.email}} </h7>
+<br />
+<br /><blockquote>{{article.content}}</blockquote>
+<br />
+<a href="{{backLink}}">Powrót do listy artykułów</a>
+<br />
+{% endblock %}

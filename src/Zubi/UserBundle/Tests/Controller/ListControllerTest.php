@@ -4,18 +4,13 @@ namespace Zubi\UserBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class ListControllerTest extends WebTestCase
 {
     public function testIndex()
     {
         $client = static::createClient();
         $crawler = $client->followRedirects(true);
 
-<<<<<<< HEAD
-        //$crawler = $client->request('GET', '/hello/Fabien');
-
-        //$this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
-=======
         $crawler = $client->request('GET', '/profile');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
@@ -31,6 +26,12 @@ class DefaultControllerTest extends WebTestCase
 
 		$this->assertTrue($crawler->filter('html:contains("pawel@costam.com")')->count() > 0);
 
->>>>>>> c512917f49a947366925c9a77aba789a8b40c92a
+
+        $crawler = $client->request('GET', '/profile/list');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        $this->assertTrue($crawler->filter('html:contains("miasto")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("kraj")')->count() > 0);
+
     }
 }
