@@ -26,6 +26,34 @@ class DefaultControllerTest extends WebTestCase
         $this->assertRegExp('/1./', $client->getResponse()->getContent());      
     //  $this->assertTrue($crawler->filter('html:contains("FAQ")')->count() > 0);   
     }
-   
+    
+    public function testFaqDelete()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/faq/delete/2');    
+        // jeśli jest wyrażenie 1. to znaczy że wyświetliło się przynajmniej jedno 
+        // pytanie
+         $this->assertTrue($client->getResponse()->getStatusCode() == '302' ,
+                "Response code is: ".$client->getResponse()->getStatusCode().
+                "not 302!!!!");
+        
+        
+    //  $this->assertTrue($crawler->filter('html:contains("FAQ")')->count() > 0);   
+    }
+    
+    
+    public function testFaqEdit()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/faq/edit/2');    
+        // jeśli jest wyrażenie 1. to znaczy że wyświetliło się przynajmniej jedno 
+        // pytanie
+         $this->assertTrue($client->getResponse()->getStatusCode() == '302' ,
+                "Response code is: ".$client->getResponse()->getStatusCode().
+                "not 302!!!!");
+        
+        
+    //  $this->assertTrue($crawler->filter('html:contains("FAQ")')->count() > 0);   
+    }
 
 }
