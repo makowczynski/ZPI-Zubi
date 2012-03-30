@@ -7,6 +7,9 @@ use Zubi\UserBundle\Entity\User;
 use Zubi\UserBundle\Entity\Person;
 use Zubi\FaqBundle\Entity\Status_widocznosci;
 
+
+use Zubi\ArticleBundle\Controller\DefaultController;
+
 /**
  * Zubi\ArticleBundle\Entity\Article
  */
@@ -203,7 +206,7 @@ class Article
         return $this->status_widocznosci;
     }
     /**
-     * @var Zubi\ArticleBundle\Entity\Person
+     * @var Zubi\ArticleBundle\Entity\Osoba
      */
     private $autor;
 
@@ -211,9 +214,9 @@ class Article
     /**
      * Set autor
      *
-     * @param Zubi\ArticleBundle\Entity\Person $autor
+     * @param Zubi\ArticleBundle\Entity\Osoba $autor
      */
-    public function setAutor(\Zubi\ArticleBundle\Entity\Person $autor)
+    public function setAutor(\Zubi\ArticleBundle\Entity\Osoba $autor)
     {
         $this->autor = $autor;
     }

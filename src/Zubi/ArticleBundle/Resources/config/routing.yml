@@ -1,3 +1,8 @@
 ZubiArticleBundle_homepage:
     pattern:  /
     defaults: { _controller: ZubiArticleBundle:Default:index }
+    
+ZubiArticleBundle_showarticle:
+    pattern:  /show/{id}
+    defaults: { _controller: ZubiArticleBundle:Default:showArticle }
+    
