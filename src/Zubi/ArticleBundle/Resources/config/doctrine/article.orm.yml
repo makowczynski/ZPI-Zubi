@@ -25,14 +25,7 @@ Zubi\ArticleBundle\Entity\Article:
     authorId:
       type: integer
       column: Id_Autora
-  lifecycleCallbacks: {  }
-  manyToOne:
-    visibilityStatus:
-      targetEntity: Zubi\FaqBundle\Entity\Status_widocznosci
-      inversedBy: articles
-      joinColumn:
-        name: statusId
-        referencedColumnName: id
+  lifecycleCallbacks: {  }  
   manyToOne:
     author:
       targetEntity: Zubi\UserBundle\Entity\Osoba
@@ -49,7 +42,7 @@ Zubi\ArticleBundle\Entity\Article:
         referencedColumnName: id 
   manyToOne:
     creator:
-      targetEntity: ArticelsGroup
+      targetEntity: ArticleGroup
       inversedBy: articles
       joinColumn:
         name: groupId
