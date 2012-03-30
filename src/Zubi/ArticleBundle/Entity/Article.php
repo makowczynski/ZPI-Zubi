@@ -3,6 +3,9 @@
 namespace Zubi\ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zubi\UserBundle\Entity\User;
+use Zubi\UserBundle\Entity\Person;
+use Zubi\FaqBundle\Entity\Status_widocznosci;
 
 /**
  * Zubi\ArticleBundle\Entity\Article

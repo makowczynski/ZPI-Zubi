@@ -3,8 +3,9 @@
 namespace Zubi\UserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class User
+class User implements UserInterface
 {
 
   
@@ -67,6 +68,16 @@ class User
      * @var Zubi\UserBundle\Entity\Status
      */
     private $id_status;
+
+    private $salt;
+
+
+    public function __construct()
+    {
+        $this->isActive = true;
+        $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+    }
+
 
 
     /**
@@ -244,6 +255,26 @@ class User
      *
      * @param date $dataUr
      */
+    public function setData_Ur($dataUr)
+    {
+        $this->data_ur = $dataUr;
+    }
+
+    /**
+     * Get data_ur
+     *
+     * @return date 
+     */
+    public function getData_Ur()
+    {
+        return $this->data_ur;
+    }
+
+        /**
+     * Set data_ur
+     *
+     * @param date $dataUr
+     */
     public function setDataUr($dataUr)
     {
         $this->data_ur = $dataUr;
@@ -257,6 +288,26 @@ class User
     public function getDataUr()
     {
         return $this->data_ur;
+    }
+
+    /**
+     * Set data_ur_prezentacja
+     *
+     * @param integer $dataUrPrezentacja
+     */
+    public function setData_UrPrezentacja($dataUrPrezentacja)
+    {
+        $this->data_ur_prezentacja = $dataUrPrezentacja;
+    }
+
+    /**
+     * Get data_ur_prezentacja
+     *
+     * @return integer 
+     */
+    public function getData_UrPrezentacja()
+    {
+        return $this->data_ur_prezentacja;
     }
 
     /**
@@ -298,4 +349,39 @@ class User
     {
         return $this->id_status;
     }
+
+
+    // do obsługi logowania:
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function equals(UserInterface $user)
+    {
+        return $user->getUsername() === $this->email;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    public function getPassword()
+    {
+        return $this->haslo;
+    }
+
+
 }

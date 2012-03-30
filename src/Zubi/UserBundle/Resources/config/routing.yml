@@ -6,10 +6,14 @@ ZubiUserBundle_register:
     pattern:  /register
     defaults: { _controller: ZubiUserBundle:Register:register }
 
-ZubiUserBundle_login:
-    pattern:  /login
-    defaults: { _controller: ZubiUserBundle:Login:login }
-
 ZubiUserBundle_homepage:
     pattern:  /
     defaults: { _controller: ZubiUserBundle:Default:index }
+
+ZubiUserBundle_edituser:
+    pattern: /edit
+    defaults: { _controller: ZubiUserBundle:Edituser:edit }
+
+ZubiUserBundle_list:
+    pattern: /list
+    defaults: { _controller: ZubiUserBundle:List:list }

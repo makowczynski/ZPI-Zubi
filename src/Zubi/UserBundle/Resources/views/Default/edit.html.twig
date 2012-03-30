@@ -10,16 +10,18 @@
 
 {% block sidebaritems %}
               <li><a href="{{ path('ZubiUserBundle_homepage') }}">Ty</a></li>  
-              <li class="active"><a href="#">Ustawienia prywatności</a></li>
-              <li><a href="{{ path('ZubiUserBundle_edituser') }}">Edytuj konto</a></li>
-              <li><a href="{{ path('ZubiUserBundle_list') }}">Lista</a></li>
-
+              <li><a href="{{ path('ZubiUserBundle_private') }}">Ustawienia prywatności</a></li>
+              <li class="active"><a href="{{ path('ZubiUserBundle_edituser') }}">Edytuj konto</a></li>
+              <li><a href="{{ path('ZubiUserBundle_list') }}">Lista</a></li>              
 {% endblock %}
 
+
 {% block body %}
-<form action="{{ path('ZubiUserBundle_private') }}" method="post" {{ form_enctype(form) }}>
+
+<form action="{{ path('ZubiUserBundle_edituser') }}" method="post" novalidate="novalidate"{{ form_enctype(form) }}>
     {{ form_widget(form) }}
 
     <button type="submit">update</button>
 </form>
- {% endblock %}
+
+{% endblock %}

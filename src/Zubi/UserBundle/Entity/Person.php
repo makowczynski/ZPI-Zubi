@@ -4,7 +4,7 @@ namespace Zubi\UserBundle\Entity;
 
 class Person
 {
-	protected $id;
+    protected $id;
 
     protected $name;
     

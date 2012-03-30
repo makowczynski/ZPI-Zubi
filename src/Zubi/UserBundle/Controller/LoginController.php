@@ -5,23 +5,28 @@ namespace Zubi\UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Zubi\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class LoginController extends Controller
 {
     
-    public function loginAction()
+    public function loginAction(Request $request)
     {
-        $user = new User();
+        $request = $this->getRequest();
+        $session = $request->getSession();
 
-        
-        $form = $this->createFormBuilder($user)
-                ->add('email', 'text', array('label' => 'E-mail'))
-                ->add('haslo', 'password', array('label' => 'Hasło'))
-                ->getForm();
-        
-        
-        return $this->render('ZubiUserBundle:Default:login.html.twig', 
-                array('form' => $form->createView(),
-                    ));
+        // get the login error if there is one
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+        }
+
+        return $this->render('ZubiUserBundle:Default:login.html.twig', array(
+            // last username entered by the user
+            'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+            'error'         => $error,
+        ));
     }
 }

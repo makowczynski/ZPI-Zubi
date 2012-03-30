@@ -28,21 +28,21 @@ Zubi\ArticleBundle\Entity\Article:
   lifecycleCallbacks: {  }
   manyToOne:
     visibilityStatus:
-      targetEntity: Status_widocznosci
+      targetEntity: Zubi\FaqBundle\Entity\Status_widocznosci
       inversedBy: articles
       joinColumn:
         name: statusId
         referencedColumnName: id
   manyToOne:
     author:
-      targetEntity: Person
+      targetEntity: Zubi\UserBundle\Entity\Person
       inversedBy: articles
       joinColumn:
         name: authorId
         referencedColumnName: id
   manyToOne:
     creator:
-      targetEntity: User
+      targetEntity: Zubi\UserBundle\Entity\User
       inversedBy: articles
       joinColumn:
         name: userId
