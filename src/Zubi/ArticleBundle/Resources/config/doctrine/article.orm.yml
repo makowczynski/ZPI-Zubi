@@ -35,7 +35,7 @@ Zubi\ArticleBundle\Entity\Article:
         referencedColumnName: id
   manyToOne:
     author:
-      targetEntity: Zubi\UserBundle\Entity\Person
+      targetEntity: Zubi\UserBundle\Entity\Osoba
       inversedBy: articles
       joinColumn:
         name: authorId
@@ -46,4 +46,11 @@ Zubi\ArticleBundle\Entity\Article:
       inversedBy: articles
       joinColumn:
         name: userId
+        referencedColumnName: id 
+  manyToOne:
+    creator:
+      targetEntity: ArticelsGroup
+      inversedBy: articles
+      joinColumn:
+        name: groupId
         referencedColumnName: id 
