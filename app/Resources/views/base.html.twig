@@ -16,7 +16,7 @@
       }
     </style>
     <link href={{ asset('assets/css/bootstrap-responsive.css') }} rel="stylesheet">
-
+    <script src={{ asset('assets/js/jquery-1.7.2.min.js') }}></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,7 +41,8 @@
               {% block nav_active %}
               <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
               <li><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
-              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
+              <li><a href="{{ path('ZubiDeviceBundle_measurements') }}">Pomiary</a></li>
+              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Urządzenia</a></li>
               {% endblock %}
             </ul>
 		<p class="navbar-text pull-right">{% block login %}
@@ -63,12 +64,12 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">{% block sidebartitle %}Home{% endblock %}</li>
-		{% block sidebaritems %}
-              <li class="active"><a href="#">Wszystkie czujniki</a></li>
-              <li><a href="#">Temperatura</a></li>
-              <li><a href="#">Wilgotność</a></li>
-              <li><a href="#">Halotron</a></li>
-		{% endblock %}
+          		{% block sidebaritems %}
+                        <li class="active"><a href="#">Wszystkie czujniki</a></li>
+                        <li><a href="#">Temperatura</a></li>
+                        <li><a href="#">Wilgotność</a></li>
+                        <li><a href="#">Halotron</a></li>
+          		{% endblock %}
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -91,8 +92,8 @@
 
     </div>
 
-    <script src={{ asset('assets/js/jquery.js') }}></script>
-    <script src={{ asset('assets/js/bootstrap-transition.js') }}></script>
+    
+    <!--<script src={{ asset('assets/js/bootstrap-transition.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-alert.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-modal.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-dropdown.js') }}></script>
@@ -103,7 +104,7 @@
     <script src={{ asset('assets/js/bootstrap-button.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-collapse.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-carousel.js') }}></script>
-    <script src={{ asset('assets/js/bootstrap-typeahead.js') }}></script>
+    <script src={{ asset('assets/js/bootstrap-typeahead.js') }}></script>-->
     {% block javascript %}{% endblock %}
   </body>
 </html>

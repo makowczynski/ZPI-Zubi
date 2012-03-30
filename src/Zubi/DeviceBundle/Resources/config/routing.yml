@@ -1,7 +1,15 @@
 ZubiDeviceBundle_homepage:
-    pattern:  /
-    defaults: { _controller: ZubiDeviceBundle:Default:index }
+    pattern:  /stations
+    defaults: { _controller: ZubiDeviceBundle:Station:index }
 
 ZubiDeviceBundle_collect:
     pattern: /collect/{stationHash}/{measurementType}/{measurementValue}
-    defaults: { _controller: ZubiDeviceBundle:Default:collect}
+    defaults: { _controller: ZubiDeviceBundle:Station:collect }
+
+ZubiDeviceBundle_addStation:
+    pattern: /add-station
+    defaults: { _controller: ZubiDeviceBundle:Station:addStation }
+
+ZubiDeviceBundle_measurements:
+    pattern: /measurements/{station}
+    defaults: { _controller: ZubiDeviceBundle:Measurement:index, station: false }

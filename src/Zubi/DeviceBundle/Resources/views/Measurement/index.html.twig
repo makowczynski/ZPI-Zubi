@@ -1,0 +1,51 @@
+{% extends  '::base.html.twig' %}
+
+{% block sidebartitle %}Pomiary{% endblock %}
+
+{% block sidebaritems %}
+    <li class="active"><a href="{{ path('ZubiDeviceBundle_homepage') }}">Lista pomiarów</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h3>Lista pomiarów</h3>
+    </div>
+    
+    <script type="text/javascript">
+        $(function(){
+            $('#station').change(function(){
+                window.location.href = "{{ path('ZubiDeviceBundle_measurements') }}/" + $(this).val();
+            });
+
+        });
+        
+    </script>
+
+    <div class="row">
+        Stacja: 
+        <select id="station">
+            {% for st in stations %}
+                <option value="{{ st.id }}" {% if st.id == currentStation %}selected{% endif %}>{{ st.hash }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Rodzaj pomiaru</td>
+                    <td>Wartość pomiaru</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mt in measurements %}
+                    <tr>
+                        <td>{{ mt.measurementType.name }}</td>
+                        <td>{{ mt.value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

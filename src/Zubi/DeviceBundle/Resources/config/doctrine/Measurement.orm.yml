@@ -8,9 +8,6 @@ Zubi\DeviceBundle\Entity\Measurement:
       column: Id
       generator:
         strategy: AUTO
-    stationId:
-      type: integer
-      column: Id_Stacji
     timestamp:
       type: datetime
       column: Czas
@@ -23,11 +20,11 @@ Zubi\DeviceBundle\Entity\Measurement:
       targetEntity: Station
       inversedBy: measurements
       joinColumn:
-        name: station
+        name: Id_Stacji
         referencedColumnName: id
     measurementType:
       targetEntity: MeasurementType
       inversedBy: measurements
       joinColumn:
-        name: measurementType
+        name: Id_Typu_Pomiaru
         referencedColumnName: id

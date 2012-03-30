@@ -50,9 +50,10 @@ class Station
     private $latitude;
 
     /**
-     * @var integer $userId
+     * @var Zubi\UserBundle\Entity\User $user;
      */
-    private $userId;
+
+    private $user;
 
 
     /**
@@ -253,5 +254,55 @@ class Station
     public function getMeasurements()
     {
         return $this->measurements;
+    }
+    /**
+     * @var integer $userId
+     */
+    private $userId;
+
+    /**
+     * @var Zubi\UserBundle\Entity\User
+     */
+    private $station;
+
+
+    /**
+     * Set station
+     *
+     * @param Zubi\UserBundle\Entity\User $station
+     */
+    public function setStation(\Zubi\UserBundle\Entity\User $station)
+    {
+        $this->station = $station;
+    }
+
+    /**
+     * Get station
+     *
+     * @return Zubi\UserBundle\Entity\User 
+     */
+    public function getStation()
+    {
+        return $this->station;
+    }
+
+    /**
+     * Set user
+     *
+     * @param Zubi\UserBundle\Entity\User $user
+     */
+    public function setUser(\Zubi\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return Zubi\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

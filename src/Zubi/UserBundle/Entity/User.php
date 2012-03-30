@@ -5,7 +5,7 @@ namespace Zubi\UserBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
 
   
@@ -71,11 +71,14 @@ class User implements UserInterface
 
     private $salt;
 
+    private $stations;
+
 
     public function __construct()
     {
         $this->isActive = true;
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+        $this->stations = new ArrayCollection();
     }
 
 
@@ -343,5 +346,31 @@ class User implements UserInterface
         return $this->haslo;
     }
 
+    public function serialize() {
+       return serialize($this->id);
+    }
+    
+    public function unserialize($data) {
+        $this->id = unserialize($data);
+    }
 
+    /**
+     * Add stations
+     *
+     * @param Zubi\DeviceBundle\Entity\Station $stations
+     */
+    public function addStation(\Zubi\DeviceBundle\Entity\Station $stations)
+    {
+        $this->stations[] = $stations;
+    }
+
+    /**
+     * Get stations
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getStations()
+    {
+        return $this->stations;
+    }
 }

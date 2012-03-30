@@ -49,3 +49,7 @@ Zubi\UserBundle\Entity\User:
             joinColumn:
                 name: id_status
                 referencedColumnName: id
+    oneToMany:
+        stations:
+            targetEntity: Zubi\DeviceBundle\Entity\Station
+            mappedBy: user

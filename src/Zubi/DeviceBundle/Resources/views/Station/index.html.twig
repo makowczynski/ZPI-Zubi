@@ -1,0 +1,49 @@
+{% extends  '::base.html.twig' %}
+
+{% block sidebartitle %}Urządzenia{% endblock %}
+
+{% block sidebaritems %}
+    <li class="active"><a href="{{ path('ZubiDeviceBundle_homepage') }}">Lista urządzeń</a></li>
+    <li><a href="{{ path('ZubiDeviceBundle_addStation') }}">Dodaj urządzenie</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h3>Lista urządzeń</h3>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Kraj</td>
+                    <td>Miasto</td>
+                    <td>Ulica</td>
+                    <td>Kod urządzenia</td>
+                    <td>Długość geograficzna</td>
+                    <td>Szerokość geograficzna</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% if stations|length > 0 %}
+                    {% for st in stations %}
+                        <tr>
+                            <td>{{ st.country }}</td>
+                            <td>{{ st.city }}</td>
+                            <td>{{ st.street }}</td>
+                            <td>{{ st.hash }}</td>
+                            <td>{{ st.longitude }}</td>
+                            <td>{{ st.latitude }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">Brak urządzeń!</td>
+                    </tr>    
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <a class="btn btn-primary" href="{{ path('ZubiDeviceBundle_addStation') }}">Dodaj urządzenie</a>
+    </div>
+{% endblock %}

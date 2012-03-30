@@ -35,7 +35,3 @@ Zubi\DeviceBundle\Entity\Station:
             - NotBlank: ~
             - Type:
                 type: float
-        userId:
-            - NotBlank: ~
-            - Type:
-                type: integer

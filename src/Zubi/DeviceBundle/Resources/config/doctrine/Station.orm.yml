@@ -33,11 +33,15 @@ Zubi\DeviceBundle\Entity\Station:
     latitude:
       type: float
       column: Szerokosc
-    userId:
-      type: integer
-      column: Id_Uzytkownika
   lifecycleCallbacks: {  }
   oneToMany:
     measurements:
       targetEntity: Measurement
       mappedBy: station
+  manyToOne:
+    user:
+      targetEntity: \Zubi\UserBundle\Entity\User
+      inversedBy: stations
+      joinColumn:
+        name: Id_Uzytkownika
+        referencedColumnName: id
