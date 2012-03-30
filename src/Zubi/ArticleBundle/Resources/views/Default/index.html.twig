@@ -1,5 +1,11 @@
 {% extends  '::base.html.twig' %}
 
+{% block sidebartitle %}Artykuły{% endblock %}
+{% block sidebaritems %}
+    <li class="active"><a href="{{ path('ZubiArticleBundle_homepage') }}">Lista artykułów</a></li>
+    <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Strona główna serwisu</a></li>
+{% endblock %}
+
 {% block body %}
 
 {% if app.session.hasFlash('notice') %}

@@ -1,4 +1,9 @@
 {% extends  '::base.html.twig' %}
+{% block sidebartitle %}F A Q {% endblock %}
+{% block sidebaritems %}
+    <li class="active"><a href="{{ path('ZubiFaqBundle_homepage') }}">Faq</a></li>
+    <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Strona główna serwisu</a></li>
+{% endblock %}
 
 {% block body %}
 
