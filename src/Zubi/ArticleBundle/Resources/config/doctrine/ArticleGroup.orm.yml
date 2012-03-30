@@ -1,6 +1,6 @@
 Zubi\ArticleBundle\Entity\ArticleGroup:
   type: entity
-  table: status_widocznosci
+  table: grupy_artykulow
   fields:
     id:
       type: integer

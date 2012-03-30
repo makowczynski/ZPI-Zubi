@@ -26,11 +26,5 @@
             {% set a = a + 1 %}
     {% endfor %}
    </ol>
-<h4>Możesz dodać nową pozycję w FAQ</h4>
-<form action="{{  path('ZubiFaqBundle_homepage')  }}" method="POST" {{ form_enctype(form) }}>
-    {{ form_row(form.tresc) }}
-    {{ form_row(form.odpowiedz) }}
-    {{ form_row(form.StatusWidocznosci) }}
-    <input type="submit" />
-</form>
+
 {% endblock %}

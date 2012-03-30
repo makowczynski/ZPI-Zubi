@@ -14,8 +14,24 @@
 {% endif %}
 
 <h3>Lista artykułów</h3>
-
 <br />
-   
+   <ol> 
+    {% set a = 0 %}
+    {% for article in articles %}
+            <li>{{ article.title }}&nbsp;&nbsp;&nbsp;|&nbsp;
+            <a href="">usuń</a>&nbsp;|&nbsp;
+            <a href="">zmień</a>&nbsp;|&nbsp;
+            </li>
+            {% set a = a + 1 %}
+    {% endfor %}
+   </ol>
+<br />
+   <h4>Możesz dodać nową pozycję w FAQ</h4>
+<form action="{{  path('ZubiFaqBundle_homepage')  }}" method="POST" {{ form_enctype(form) }}>
+    {{ form_row(form.title) }}
+    {{ form_row(form.content) }}
+    {{ form_row(form.StatusWidocznosci) }}
+    <input type="submit" />
+</form>
 
 {% endblock %}

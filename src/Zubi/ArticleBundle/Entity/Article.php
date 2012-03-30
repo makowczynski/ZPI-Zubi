@@ -177,13 +177,10 @@ class Article
     {
         return $this->authorId;
     }
-
-    
-    
     /**
      * @var Zubi\ArticleBundle\Entity\Status_widocznosci
      */
-   // private $status_widocznosci;
+    private $status_widocznosci;
 
 
     /**
@@ -191,22 +188,20 @@ class Article
      *
      * @param Zubi\ArticleBundle\Entity\Status_widocznosci $statusWidocznosci
      */
- /*   public function setStatusWidocznosci(\Zubi\ArticleBundle\Entity\Status_widocznosci $statusWidocznosci)
+    public function setStatusWidocznosci(\Zubi\ArticleBundle\Entity\Status_widocznosci $statusWidocznosci)
     {
         $this->status_widocznosci = $statusWidocznosci;
     }
-*/
+
     /**
      * Get status_widocznosci
      *
      * @return Zubi\ArticleBundle\Entity\Status_widocznosci 
      */
-/*    public function getStatusWidocznosci()
+    public function getStatusWidocznosci()
     {
         return $this->status_widocznosci;
     }
- * 
- */
     /**
      * @var Zubi\ArticleBundle\Entity\Person
      */

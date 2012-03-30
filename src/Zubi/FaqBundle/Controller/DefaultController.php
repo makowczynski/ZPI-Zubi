@@ -95,8 +95,8 @@ class DefaultController extends Controller
                 $em->flush();
                  $this->get('session')->setFlash('notice', 'Poprawnie dodałeś nowe FAQ.');
                 //po poprawnym dodaniu danych z formularza, chcemy mieć go pustego.                
-              //  $newFaq = new Faq();
-              //  $form = $this->createForm(new FaqForm(), $newFaq);                 
+                $newFaq = new Faq();
+                $form = $this->createForm(new FaqForm(), $newFaq);                 
         }                     
      }       
      //pobieramy z bazy wszystkie faq     
