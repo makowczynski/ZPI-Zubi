@@ -26,9 +26,15 @@ class DefaultController extends Controller
                 ));
     }
     
-    public function showArticleAction($id){
+    public function showArticleAction($id){       
         $em = $this->getDoctrine()->getEntityManager();            
-        $article = $em->getRepository('ZubiArticleBundle:Article')->findOneById($id);     
+        $article = $em->getRepository('ZubiArticleBundle:Article')->findOneById($id);   
+        //jeśli nie znaleziono artykułu, więc redirect na listę artyk
+        if (!$article) {
+            $this->get('session')->setFlash('errorMsg', 'Próbowałeś wyświetlić nieistniejący artykuł');
+            return $this->redirect($this->generateUrl('ZubiArticleBundle_homepage'));
+        }
+        //jes artykuł więc dalej pobieramy autora, twórcę, kategorię 
         $author = $em->getRepository('ZubiUserBundle:Osoba')->findOneById($article->getAuthorId());
         $creator = $em->getRepository('ZubiUserBundle:User')->findOneById($article->getUserId());
         $category = $em->getRepository('ZubiArticleBundle:ArticleGroup')->findOneById($article->getGroupId());
