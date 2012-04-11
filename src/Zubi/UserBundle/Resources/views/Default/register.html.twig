@@ -1,10 +1,5 @@
 {% extends  '::base.html.twig' %}
 
-{% block nav_active %}
-              <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
-              <li class="active"><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
-              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
-{% endblock %}
 
 {% block sidebartitle %}Register{% endblock %}
 
@@ -22,4 +17,10 @@
     <input type="submit" />
 </form>
 
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $('#form_email').popover({title: "tytul", content: "test"});
+    </script>
 {% endblock %}
