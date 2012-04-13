@@ -41,7 +41,6 @@
               {% block nav_active %}
               <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
               <li><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
-              <li><a href="{{ path('ZubiDeviceBundle_measurements') }}">Pomiary</a></li>
               <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Urządzenia</a></li>
               <li><a href="{{ path('ZubiFaqBundle_homepage') }}">FAQ</a></li>
               <li><a href="{{ path('ZubiArticleBundle_homepage') }}">Artykuły</a></li>
@@ -68,9 +67,7 @@
               <li class="nav-header">{% block sidebartitle %}Home{% endblock %}</li>
           		{% block sidebaritems %}
                         <li class="active"><a href="#">Wszystkie czujniki</a></li>
-                        <li><a href="#">Temperatura</a></li>
-                        <li><a href="#">Wilgotność</a></li>
-                        <li><a href="#">Halotron</a></li>
+
           		{% endblock %}
             </ul>
           </div><!--/.well -->
@@ -101,12 +98,13 @@
     <script src={{ asset('assets/js/bootstrap-dropdown.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-scrollspy.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-tab.js') }}></script>
-    <script src={{ asset('assets/js/bootstrap-tooltip.js') }}></script>
-    <script src={{ asset('assets/js/bootstrap-popover.js') }}></script>
+   
     <script src={{ asset('assets/js/bootstrap-button.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-collapse.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-carousel.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-typeahead.js') }}></script>-->
+    <script src={{ asset('assets/js/bootstrap-tooltip.js') }}></script>
+    <script src={{ asset('assets/js/bootstrap-popover.js') }}></script>
     {% block javascript %}{% endblock %}
   </body>
 </html>
