@@ -12,18 +12,53 @@
 {% block body %}
 
 <form action="{{ path('ZubiUserBundle_register') }}" method="post" novalidate="novalidate"{{ form_enctype(form) }}>
-    {{ form_widget(form) }}
 
+{{ form_errors(form) }}
+<div>
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email) }}
+    <i class="icon-info-sign" id="info_email"></i>
+</div>
+
+<div>
+    {{ form_label(form.haslo) }}
+    {{ form_widget(form.haslo) }}
+    <i class="icon-info-sign" id="info_haslo"></i>
+</div>
+
+<div>
+    {{ form_label(form.kraj) }}
+    {{ form_widget(form.kraj) }}
+    <i class="icon-info-sign" id="info_kraj"></i>
+</div>
+
+<div>
+    {{ form_label(form.miasto) }}
+    {{ form_widget(form.miasto) }}
+    <i class="icon-info-sign" id="info_miasto"></i>
+</div>
+
+<div>
+    {{ form_label(form.data_ur) }}
+    {{ form_widget(form.data_ur) }}
+    <i class="icon-info-sign" id="info_data_ur"></i>
+</div>
+
+    {{ form_rest(form) }}
+<br>
     <input type="submit" />
+
+
 </form>
 
 {% endblock %}
 
 {% block javascript %}
     <script type="text/javascript">
-    $('#form_email').popover({title: "E-mail", content: "Format: XXXX@XXXX.XX"});
-    $('#form_haslo').popover({title: "Hasło", content: "Hasło powinno zawierać minimum 6 znaków"});
-    $('#form_kraj').popover({title: "Kraj", content: "Kraj, w którym znajduje się stacja"});
-
+    $('#info_email').popover({title: "E-mail", content: "Format: XXXX@XXXX.XX"});
+    $('#info_haslo').popover({title: "Hasło", content: "Hasło powinno zawierać minimum 6 znaków"});
+    $('#info_kraj').popover({title: "Kraj", content: "Kraj, w którym znajduje się stacja"});
+    $('#info_miasto').popover({title: "Miasto", content: "Miasto, w którym znajduje się stacja"});
+    $('#info_data_ur').popover({title: "Data urodzenia", content: "Format: RRRR MM DD"});
 </script>
 {% endblock %}

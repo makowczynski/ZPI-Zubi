@@ -23,13 +23,24 @@
 {% endif %}
 
 <form action="{{ path('ZubiUserBundle_login_check') }}" method="post">	
+    
     <label for="username">Email:</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" />
-
+    <i class="icon-info-sign" id="info_username"></i>
+    
     <label for="password">Pass:</label>
     <input type="password" id="password" name="_password" />
-
+    <i class="icon-info-sign" id="info_password"></i>
+<br>
     <button type="submit">login</button>
 </form>
 
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $('#info_username').popover({title: "Użytkownik", content: "Podaj nazwę użytkownika"});
+    $('#info_password').popover({title: "Hasło", content: "Podaj hasło użytkownika"});
+   
+</script>
 {% endblock %}
