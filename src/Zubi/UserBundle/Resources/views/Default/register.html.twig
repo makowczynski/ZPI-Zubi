@@ -21,6 +21,9 @@
 
 {% block javascript %}
     <script type="text/javascript">
-    $('#form_email').popover({title: "tytul", content: "test"});
-    </script>
+    $('#form_email').popover({title: "E-mail", content: "Format: XXXX@XXXX.XX"});
+    $('#form_haslo').popover({title: "Hasło", content: "Hasło powinno zawierać minimum 6 znaków"});
+    $('#form_kraj').popover({title: "Kraj", content: "Kraj, w którym znajduje się stacja"});
+
+</script>
 {% endblock %}
