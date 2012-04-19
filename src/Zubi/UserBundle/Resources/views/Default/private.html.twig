@@ -1,17 +1,10 @@
 {% extends  '::base.html.twig' %}
 
-{% block nav_active %}
-              <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
-              <li class="active"><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
-              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
-              <li><a href="{{ path('ZubiFaqBundle_homepage') }}">FAQ</a></li>
-              <li><a href="{{ path('ZubiArticleBundle_homepage') }}">Artykuły</a></li>
-{% endblock %}
 
-{% block sidebartitle %} Profil {% endblock %}
+{% block sidebartitle %} Profil użytkownika{% endblock %}
 
 {% block sidebaritems %}
-              <li><a href="{{ path('ZubiUserBundle_homepage') }}">Ty</a></li>  
+              <li><a href="{{ path('ZubiUserBundle_homepage') }}">Dane użytkownika</a></li>  
               <li class="active"><a href="#">Ustawienia prywatności</a></li>
               <li><a href="{{ path('ZubiUserBundle_edituser') }}">Edytuj konto</a></li>
               <li><a href="{{ path('ZubiUserBundle_list') }}">Lista</a></li>
@@ -19,9 +12,51 @@
 {% endblock %}
 
 {% block body %}
+<h3> Edycja ustawień prezentacji danych użytkownika</h3>
+<br>
 <form action="{{ path('ZubiUserBundle_private') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+  
+{{ form_errors(form) }}
+<table>
+  <tbody>
+    <tr>
+      <td>{{ form_label(form.osoba_prezentacja) }}</td>
+      <td></td>
+      <td>{{ form_widget(form.osoba_prezentacja) }}</td>
+      <td><i class="icon-info-sign" id="info_osoba"></i></td>
+    </tr>
+    <tr>
+      <td>{{ form_label(form.kraj_prezentacja) }}</td>
+      <td></td>
+      <td>{{ form_widget(form.kraj_prezentacja) }}</td>
+      <td><i class="icon-info-sign" id="info_kraj"></i></td>
+    </tr>
+    <tr>
+      <td>{{ form_label(form.miasto_prezentacja) }}</td>
+      <td></td>
+      <td>{{ form_widget(form.miasto_prezentacja) }}</td>
+      <td><i class="icon-info-sign" id="info_miasto"></i></td>
+    </tr>
+    <tr>
+      <td>{{ form_label(form.data_ur_prezentacja) }}</td>
+      <td></td>
+      <td>{{ form_widget(form.data_ur_prezentacja) }}</td>
+      <td><i class="icon-info-sign" id="info_data_ur"></i></td>
+    </tr>
+  </tbody>
+</table>
 
-    <button type="submit">update</button>
+{{ form_rest(form) }}
+<br>
+    <input type="submit" class="btn-primary" value="Aktualizuj dane" />
 </form>
  {% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $('#info_osoba').popover({title: "Osoba", content: "Czy wyświetlać?"});
+    $('#info_kraj').popover({title: "Kraj", content: "Czy wyświetlać?"});
+    $('#info_miasto').popover({title: "Miasto", content: "Czy wyświetlać?"});
+    $('#info_data_ur').popover({title: "Data urodzenia", content: "Czy wyświetlać?"});
+</script>
+{% endblock %}

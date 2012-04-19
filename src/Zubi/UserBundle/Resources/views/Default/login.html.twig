@@ -1,12 +1,5 @@
 {% extends  '::base.html.twig' %}
 
-{% block nav_active %}
-              <li><a href="{{ path('ZubiIndexBundle_homepage') }}">Home</a></li>
-              <li class="active"><a href="{{ path('ZubiUserBundle_homepage') }}">Profil</a></li>
-              <li><a href="{{ path('ZubiDeviceBundle_homepage') }}">Device</a></li>
-              <li><a href="{{ path('ZubiFaqBundle_homepage') }}">FAQ</a></li>
-              <li><a href="{{ path('ZubiArticleBundle_homepage') }}">Artykuły</a></li>
-{% endblock %}
 
 {% block sidebartitle %}Login{% endblock %}
 
@@ -28,11 +21,11 @@
     <input type="text" id="username" name="_username" value="{{ last_username }}" />
     <i class="icon-info-sign" id="info_username"></i>
     
-    <label for="password">Pass:</label>
+    <label for="password">Hasło:</label>
     <input type="password" id="password" name="_password" />
     <i class="icon-info-sign" id="info_password"></i>
 <br>
-    <button type="submit" class="btn-primary">Login</button>
+    <button type="submit" class="btn-primary">Zaloguj</button>
 </form>
 
 {% endblock %}

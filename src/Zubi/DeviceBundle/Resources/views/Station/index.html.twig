@@ -1,26 +1,28 @@
 {% extends  '::base.html.twig' %}
 
-{% block sidebartitle %}Urządzenia{% endblock %}
+{% block sidebartitle %}Urządzenia użytkownika{% endblock %}
 
 {% block sidebaritems %}
-    <li class="active"><a href="{{ path('ZubiDeviceBundle_homepage') }}">Lista urządzeń</a></li>
-    <li><a href="{{ path('ZubiDeviceBundle_addStation') }}">Dodaj urządzenie</a></li>
+    <li class="active"><a href="{{ path('ZubiDeviceBundle_homepage') }}">Lista zarejestrowanych urządzeń</a></li>
+    <li><a href="{{ path('ZubiDeviceBundle_addStation') }}">Zartejestruj nowe urządzenie</a></li>
 {% endblock %}
 
 {% block body %}
     <div class="row">
-        <h3>Lista urządzeń</h3>
+        <h3>Lista urządzeń użytkownika 
+        <Font Color="#0066CC"> <u>{{ app.user.username }}</u> </Font> </h3>
+    <br>
     </div>
     <div class="row">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <td>Kraj</td>
-                    <td>Miasto</td>
-                    <td>Ulica</td>
-                    <td>Kod urządzenia</td>
-                    <td>Długość geograficzna</td>
-                    <td>Szerokość geograficzna</td>
+                    <td><b>Kraj</b></td>
+                    <td><b>Miasto</b></td>
+                    <td><b>Ulica</b></td>
+                    <td><b>Kod urządzenia</b></td>
+                    <td><b>Długość geograficzna</b></td>
+                    <td><b>Szerokość geograficzna</b></td>
                 </tr>
             </thead>
             <tbody>
@@ -37,13 +39,13 @@
                     {% endfor %}
                 {% else %}
                     <tr>
-                        <td colspan="5">Brak urządzeń!</td>
+                        <td colspan="6">Brak zarejestrowanych urządzeń!</td>
                     </tr>    
                 {% endif %}
             </tbody>
         </table>
     </div>
     <div class="row">
-        <a class="btn btn-primary" href="{{ path('ZubiDeviceBundle_addStation') }}">Dodaj urządzenie</a>
+        <a class="btn btn-primary" href="{{ path('ZubiDeviceBundle_addStation') }}">Zarejestruj nowe urządzenie użytkownika</a>
     </div>
 {% endblock %}

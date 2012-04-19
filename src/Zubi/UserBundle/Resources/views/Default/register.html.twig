@@ -1,7 +1,7 @@
 {% extends  '::base.html.twig' %}
 
 
-{% block sidebartitle %}Register{% endblock %}
+{% block sidebartitle %}Rejestracja{% endblock %}
 
 {% block sidebaritems %}
               <li class="active"><a href="#">Nowe konto</a></li>
@@ -14,29 +14,30 @@
 <form action="{{ path('ZubiUserBundle_register') }}" method="post" novalidate="novalidate"{{ form_enctype(form) }}>
 
 {{ form_errors(form) }}
-<div>
-    {{ form_label(form.email) }}
-    {{ form_widget(form.email) }}
-    <i class="icon-info-sign" id="info_email"></i>
-</div>
 
 <div>
-    {{ form_label(form.haslo) }}
-    {{ form_widget(form.haslo) }}
-    <i class="icon-info-sign" id="info_haslo"></i>
+      {{ form_label(form.email) }}
+      {{ form_widget(form.email) }}
+      <i class="icon-info-sign" id="info_email"></i>
 </div>
+   
+<div>    
+      {{ form_label(form.haslo) }}
+      {{ form_widget(form.haslo) }}
+      <i class="icon-info-sign" id="info_haslo"></i>
+</div> 
 
-<div>
-    {{ form_label(form.kraj) }}
-    {{ form_widget(form.kraj) }}
-    <i class="icon-info-sign" id="info_kraj"></i>
-</div>
+<div>    
+      {{ form_label(form.kraj) }}
+      {{ form_widget(form.kraj) }}
+      <i class="icon-info-sign" id="info_kraj"></i>
+</div>  
 
-<div>
-    {{ form_label(form.miasto) }}
-    {{ form_widget(form.miasto) }}
-    <i class="icon-info-sign" id="info_miasto"></i>
-</div>
+<div>    
+      {{ form_label(form.miasto) }}
+      {{ form_widget(form.miasto) }}
+      <i class="icon-info-sign" id="info_miasto"></i>
+</div>    
 
 <div class="input-min">
     {{ form_label(form.data_ur) }}
