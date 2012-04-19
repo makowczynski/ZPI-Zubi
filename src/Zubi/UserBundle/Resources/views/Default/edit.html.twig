@@ -21,9 +21,46 @@
 {% block body %}
 
 <form action="{{ path('ZubiUserBundle_edituser') }}" method="post" novalidate="novalidate"{{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+<div>
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email) }}
+    <i class="icon-info-sign" id="info_email"></i>
+</div>
 
-    <button type="submit">update</button>
+<div>
+    {{ form_label(form.kraj) }}
+    {{ form_widget(form.kraj) }}
+    <i class="icon-info-sign" id="info_kraj"></i>
+</div>
+
+<div>
+    {{ form_label(form.miasto) }}
+    {{ form_widget(form.miasto) }}
+    <i class="icon-info-sign" id="info_miasto"></i>
+</div>
+
+<div class="input-min">
+    {{ form_label(form.data_ur) }}
+
+    {{ form_widget(form.data_ur.year, { 'attr': {'class': 'span1'} }) }}
+    {{ form_widget(form.data_ur.month, { 'attr': {'class': 'span1'} }) }}
+    {{ form_widget(form.data_ur.day, { 'attr': {'class': 'span1'} }) }}
+    <i class="icon-info-sign" id="info_data_ur"></i>
+</div>
+
+    {{ form_rest(form) }}
+<br>
+    <input type="submit" class="btn-primary" value="Zmień" />
 </form>
 
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript">
+    $('#info_email').popover({title: "E-mail", content: "Format: XXXX@XXXX.XX"});
+    $('#info_kraj').popover({title: "Kraj", content: "Kraj, w którym znajduje się użytkownik"});
+    $('#info_miasto').popover({title: "Miasto", content: "Miasto, w którym znajduje się użytkownik"});
+    $('#info_data_ur').popover({title: "Data urodzenia", content: "Format: RRRR MM DD"});
+</script>
 {% endblock %}

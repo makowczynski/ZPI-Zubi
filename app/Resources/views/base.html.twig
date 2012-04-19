@@ -46,9 +46,11 @@
               <li><a href="{{ path('ZubiArticleBundle_homepage') }}">Artykuły</a></li>
               {% endblock %}
             </ul>
-		<p class="navbar-text pull-right">{% block login %}
-      {% if is_granted('ROLE_USER') %}
-          <a href="{{ path('ZubiUserBundle_logout') }}">Wyloguj</a>
+	<p class="navbar-text pull-right">{% block login %}
+        {% if is_granted('ROLE_USER') %}
+         {{ app.user.username }}
+            <a href="{{ path('ZubiUserBundle_logout') }}"> Wyloguj </a>
+        
         {% else %}
          <a href="{{ path('ZubiUserBundle_login') }}">Zaloguj</a>
        {% endif %}  
@@ -95,17 +97,23 @@
     <!--<script src={{ asset('assets/js/bootstrap-transition.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-alert.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-modal.js') }}></script>
-    <script src={{ asset('assets/js/bootstrap-dropdown.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-scrollspy.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-tab.js') }}></script>
-   
     <script src={{ asset('assets/js/bootstrap-button.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-collapse.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-carousel.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-typeahead.js') }}></script>-->
     <script src={{ asset('assets/js/bootstrap-tooltip.js') }}></script>
     <script src={{ asset('assets/js/bootstrap-popover.js') }}></script>
-    {% block javascript %}{% endblock %}
+    <script src={{ asset('assets/js/bootstrap-dropdown.js') }}></script>
+ {% block javascript %}
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+
+{% endblock %}
   </body>
 </html>
 

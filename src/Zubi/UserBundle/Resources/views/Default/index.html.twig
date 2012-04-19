@@ -19,8 +19,38 @@
 {% endblock %}
 
 {% block body %}
-	<p>Username: {{ user.username }}</p>
-	<p>Kraj: {{ user.kraj }}</p>
-	<p>Miasto: {{ user.miasto }}</p>
-       <p>Data urodzenia: {{ user.data_ur|date("d/m/y") }}</p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th><p><b>Dane użytkownika: </b></p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td><p>Użytkownik: </p></td>
+      <td><p>{{ user.username }}</p></td>
+    </tr>
+    <tr>
+      <td><p>Kraj: </p></td>
+      <td><p>{{ user.kraj }}</p></td>
+    </tr>
+    <tr>
+      <td><p>Miasto: </p></td>
+      <td><p>{{ user.miasto }}</p></td>
+    </tr>
+    <tr>
+      <td><p>Data urodzenia: </p></td>
+      <td><p>{{ user.data_ur|date("d/m/y") }} </p></td>
+    </tr>
+  </tbody>
+</table>
+	
 {% endblock %}

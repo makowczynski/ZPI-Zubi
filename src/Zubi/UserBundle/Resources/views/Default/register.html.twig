@@ -38,15 +38,18 @@
     <i class="icon-info-sign" id="info_miasto"></i>
 </div>
 
-<div>
+<div class="input-min">
     {{ form_label(form.data_ur) }}
-    {{ form_widget(form.data_ur) }}
+
+    {{ form_widget(form.data_ur.year, { 'attr': {'class': 'span1'} }) }}
+    {{ form_widget(form.data_ur.month, { 'attr': {'class': 'span1'} }) }}
+    {{ form_widget(form.data_ur.day, { 'attr': {'class': 'span1'} }) }}
     <i class="icon-info-sign" id="info_data_ur"></i>
 </div>
 
     {{ form_rest(form) }}
 <br>
-    <input type="submit" />
+    <input type="submit" class="btn-primary" value="Prześlij" />
 
 
 </form>
@@ -57,8 +60,8 @@
     <script type="text/javascript">
     $('#info_email').popover({title: "E-mail", content: "Format: XXXX@XXXX.XX"});
     $('#info_haslo').popover({title: "Hasło", content: "Hasło powinno zawierać minimum 6 znaków"});
-    $('#info_kraj').popover({title: "Kraj", content: "Kraj, w którym znajduje się stacja"});
-    $('#info_miasto').popover({title: "Miasto", content: "Miasto, w którym znajduje się stacja"});
+    $('#info_kraj').popover({title: "Kraj", content: "Kraj, w którym znajduje się użytkownik"});
+    $('#info_miasto').popover({title: "Miasto", content: "Miasto, w którym znajduje się użytkownik"});
     $('#info_data_ur').popover({title: "Data urodzenia", content: "Format: RRRR MM DD"});
 </script>
 {% endblock %}
